@@ -5,20 +5,7 @@ This page is currently being revised. It might be incomplete or contain inaccura
 <div class="description"><p>This section explains how to bootstrap your application with angular, using either the angular
 javascript file, or manually.</p>
 
-<h4>The angular distribution</h4>
-
-<p>Note that there are two versions of the angular javascript file that you can use:</p>
-
-<ul>
-<li><code>angular.js</code> - the development version - this file is unobfuscated, uncompressed, and thus
-human-readable and useful when developing your angular applications.</li>
-<li><code>angular.min.js</code> - the production version - this is a minified and obfuscated version of
-<code>angular.js</code>. You want to use this version when you want to load a smaller but functionally
-equivalent version of the code in your application. We use the Closure compiler to create this
-file.</li>
-</ul>
-
-<h4>Auto-bootstrap with <code>ng:autobind</code></h4>
+<h3>Auto-bootstrap with <code>ng:autobind</code></h3>
 
 <p>The simplest way to get an <tt>&lt;angular/&gt;</tt> application up and running is by inserting a script tag in
 your HTML file that bootstraps the <code>http://code.angularjs.org/angular-x.x.x.min.js</code> code and uses
@@ -33,9 +20,13 @@ the special <code>ng:autobind</code> attribute, like in this snippet of HTML:</p
        Hello {{'world'}}!
      &lt;/body&gt;
     &lt;/html&gt;
-</pre></div><p>The <code>ng:autobind</code> attribute tells <tt>&lt;angular/&gt;</tt> to compile and manage the whole HTML document. The
-compilation occurs in the page's <code>onLoad</code> handler. Note that you don't need to explicitly add an
-<code>onLoad</code> event; auto bind mode takes care of all the magic for you.</p>
+</pre></div><p>The <code>ng:autobind</code> attribute without any value tells angular to compile and manage the whole HTML
+document. The compilation occurs as soon as the document is ready for DOM manipulation. Note that
+you don't need to explicitly add an <code>onLoad</code> event handler; auto bind mode takes care of all the
+work for you.</p>
+
+<p>In order to compile only a part of the document, specify the id of the element that should be
+compiled as the value of the <code>ng:autobind</code> attribute, e.g. <code>ng:autobind="angularContent"</code>.</p>
 
 <h4>Auto-bootstrap with <code>#autobind</code></h4>
 
@@ -55,6 +46,9 @@ src URL, like in this snippet:</p><div ng:non-bindable><pre class="brush: js; ht
      &lt;/body&gt;
     &lt;/html&gt;
 </pre></div><p>In this case it's the <code>#autobind</code> URL fragment that tells angular to auto-bootstrap.</p>
+
+<p>Similarly to <code>ng:autobind</code>, you can specify an element id that should be exclusively targeted for
+compilation as the value of the <code>#autobind</code>, e.g. <code>#autobind=angularContent</code>.</p>
 
 <h4>Filename Restrictions for Auto-bootstrap</h4>
 
@@ -89,12 +83,9 @@ equivalent to the code in the previous section.</p><div ng:non-bindable><pre cla
       &lt;script type="text/javascript" src="http://code.angularjs.org/angular-0.9.3.min.js"
               ng:autobind&gt;&lt;/script&gt;
       &lt;script type="text/javascript"&gt;
-       (function(window, previousOnLoad){
-         window.onload = function(){
-          try { (previousOnLoad||angular.noop)(); } catch(e) {}
-          angular.compile(window.document);
-         };
-       })(window, window.onload);
+       (angular.element(document).ready(function() {
+         angular.compile(document)();
+       })(document);
       &lt;/script&gt;
      &lt;/head&gt;
      &lt;body&gt;

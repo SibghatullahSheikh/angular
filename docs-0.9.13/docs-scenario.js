@@ -32,6 +32,13 @@ describe("angular.filter", function(){
 
 });
 
+describe("angular.markup", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.markup");
+  });
+
+});
+
 describe("angular.formatter", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.formatter");
@@ -50,27 +57,9 @@ describe("angular.formatter", function(){
 
 });
 
-describe("angular.markup", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.markup");
-  });
-
-});
-
 describe("angular", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular");
-  });
-
-});
-
-describe("angular.service", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.service");
-  });
-
-  it('should test service', function(){
-    expect(element(':input[name=message]').val()).toEqual('test');
   });
 
 });
@@ -130,6 +119,23 @@ describe("cookbook.buzz", function(){
      element('.buzz a:contains(Expand replies):first').click();
      expect(repeater('div.reply').count()).toBeGreaterThan(0);
    });
+
+});
+
+describe("cookbook.deeplinking", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!cookbook.deeplinking");
+  });
+
+    it('should navigate to URL', function(){
+     element('a:contains(Welcome)').click();
+     expect(element('ng\\:view').text()).toMatch(/Hello anonymous/);
+     element('a:contains(Settings)').click();
+     input('form.name').enter('yourname');
+     element(':button:contains(Save)').click();
+     element('a:contains(Welcome)').click();
+     expect(element('ng\\:view').text()).toMatch(/Hello yourname/);
+    });
 
 });
 
@@ -213,23 +219,6 @@ describe("cookbook.helloworld", function(){
 
 });
 
-describe("cookbook.deeplinking", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!cookbook.deeplinking");
-  });
-
-    it('should navigate to URL', function(){
-     element('a:contains(Welcome)').click();
-     expect(element('ng\\:view').text()).toMatch(/Hello anonymous/);
-     element('a:contains(Settings)').click();
-     input('form.name').enter('yourname');
-     element(':button:contains(Save)').click();
-     element('a:contains(Welcome)').click();
-     expect(element('ng\\:view').text()).toMatch(/Hello yourname/);
-    });
-
-});
-
 describe("cookbook.mvc", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!cookbook.mvc");
@@ -252,6 +241,13 @@ describe("cookbook.mvc", function(){
 
 });
 
+describe("cookbook", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!cookbook");
+  });
+
+});
+
 describe("downloading", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!downloading");
@@ -262,13 +258,6 @@ describe("downloading", function(){
 describe("faq", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!faq");
-  });
-
-});
-
-describe("cookbook", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!cookbook");
   });
 
 });
@@ -1301,6 +1290,17 @@ describe("angular.directive.ng:src", function(){
 
 });
 
+describe("angular.service", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.service");
+  });
+
+  it('should test service', function(){
+    expect(element(':input[name=message]').val()).toEqual('test');
+  });
+
+});
+
 describe("angular.scope", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.scope");
@@ -1746,13 +1746,6 @@ describe("angular.service.$exceptionHandler", function(){
 
 });
 
-describe("angular.service.$hover", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.service.$hover");
-  });
-
-});
-
 describe("angular.service.$invalidWidgets", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.service.$invalidWidgets");
@@ -1778,18 +1771,18 @@ describe("angular.service.$log", function(){
 
 });
 
-describe("angular.service.$route", function(){
+describe("angular.service.$resource", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.service.$route");
+    browser().navigateTo("index.html#!angular.service.$resource");
   });
 
   
 
 });
 
-describe("angular.service.$resource", function(){
+describe("angular.service.$route", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.service.$resource");
+    browser().navigateTo("index.html#!angular.service.$route");
   });
 
   
@@ -1803,9 +1796,9 @@ describe("angular.service.$updateView", function(){
 
 });
 
-describe("angular.service.$xhr.bulk", function(){
+describe("angular.service.$hover", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.service.$xhr.bulk");
+    browser().navigateTo("index.html#!angular.service.$hover");
   });
 
 });
@@ -1819,9 +1812,9 @@ describe("angular.service.$window", function(){
 
 });
 
-describe("angular.service.$xhr.error", function(){
+describe("angular.service.$xhr.bulk", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.service.$xhr.error");
+    browser().navigateTo("index.html#!angular.service.$xhr.bulk");
   });
 
 });
@@ -1829,6 +1822,13 @@ describe("angular.service.$xhr.error", function(){
 describe("angular.service.$xhr.cache", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.service.$xhr.cache");
+  });
+
+});
+
+describe("angular.service.$xhr.error", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.service.$xhr.error");
   });
 
 });

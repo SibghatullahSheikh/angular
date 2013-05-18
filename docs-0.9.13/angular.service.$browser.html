@@ -4,7 +4,9 @@ This page is currently being revised. It might be incomplete or contain inaccura
 <h2>Description</h2>
 <div class="description"><p>Represents the browser.</p></div>
 <h2>Dependencies</h2>
-<ul class="dependencies"><li>$log</li>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="#!angular.service.$log">$log</a>
+</code>
+</li>
 </ul>
 <h2>Methods</h2>
 <ul class="methods"><li><h3>addCss(url)</h3>
@@ -116,16 +118,25 @@ setTimeout fn and kicks it off.</p><h4>Parameters</h4>
 </ul>
 </div>
 </li>
-<li><h3>xhr(method, url, post, callback)</h3>
-<div class="xhr-method-url-post-callback-"><p>Send ajax request</p><h4>Parameters</h4>
+<li><h3>xhr(method, url, post, callback, header)</h3>
+<div class="xhr-method-url-post-callback-header-"><p>Send ajax request</p><h4>Parameters</h4>
 <ul class="parameters"><li><code ng:non-bindable="">method – {string} – </code>
 <p>Requested method (get|post|put|delete|head|json)</p></li>
 <li><code ng:non-bindable="">url – {string} – </code>
 <p>Requested url</p></li>
-<li><code ng:non-bindable="">post<i>(optional)</i> – {string} – </code>
-<p>Post data to send</p></li>
+<li><code ng:non-bindable="">post – {?string} – </code>
+<p>Post data to send (null if nothing to post)</p></li>
 <li><code ng:non-bindable="">callback – {function(number, string)} – </code>
 <p>Function that will be called on response</p></li>
+<li><code ng:non-bindable="">header<i>(optional)</i> – {object} – </code>
+<p>additional HTTP headers to send with XHR.
+Standard headers are:</p>
+
+<ul>
+  <li><tt>Content-Type</tt>: <tt>application/x-www-form-urlencoded</tt></li>
+  <li><tt>Accept</tt>: <tt>application/json, text/plain, &#42;/&#42;</tt></li>
+  <li><tt>X-Requested-With</tt>: <tt>XMLHttpRequest</tt></li>
+</ul></li>
 </ul>
 </div>
 </li>

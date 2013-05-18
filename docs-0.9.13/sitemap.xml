@@ -4,22 +4,21 @@
  <url><loc>http://docs.angularjs.org/#!angular.directive</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.element</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.filter</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/#!angular.formatter</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.markup</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/#!angular.formatter</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/#!angular.service</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.validator</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.widget</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!Contributing</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!Cookbook: Resources - Buzz</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/#!Cookbook: Deep Linking</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!Cookbook: Form</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!Cookbook: Advanced Form</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!Cookbook: Hello World</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/#!Cookbook: Deep Linking</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!Cookbook: MVC</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/#!Cookbook</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!Downloading</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!FAQ</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/#!Cookbook</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!Developer Guide: Bootstrap</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!Developer Guide: Compiler</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!Developer Guide: CSS</loc><changefreq>weekly</changefreq></url>
@@ -101,6 +100,7 @@
  <url><loc>http://docs.angularjs.org/#!angular.fromJson</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.directive.ng:href</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.directive.ng:src</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/#!angular.service</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.scope</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.scope.$bind</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.scope.$get</loc><changefreq>weekly</changefreq></url>
@@ -136,16 +136,16 @@
  <url><loc>http://docs.angularjs.org/#!angular.service.$defer</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.service.$document</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.service.$exceptionHandler</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/#!angular.service.$hover</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.service.$invalidWidgets</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.service.$location</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.service.$log</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/#!angular.service.$route</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.service.$resource</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/#!angular.service.$route</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.service.$updateView</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/#!angular.service.$xhr.bulk</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/#!angular.service.$hover</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.service.$window</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/#!angular.service.$xhr.error</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/#!angular.service.$xhr.bulk</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.service.$xhr.cache</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/#!angular.service.$xhr.error</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/#!angular.service.$xhr</loc><changefreq>weekly</changefreq></url>
 </urlset>

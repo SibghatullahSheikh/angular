@@ -10,14 +10,15 @@
 <h3>Parameters</h3>
 <ul class="parameters"><li><code ng:non-bindable="">array – {Array} – </code>
 <p>The array to sort.</p></li>
-<li><code ng:non-bindable="">expression – {function(*, *)|string|Array.&lt;(function(*, *)|string)&gt;} – </code>
+<li><code ng:non-bindable="">expression – {function(*)|string|Array.&lt;(function(*)|string)&gt;} – </code>
 <p>A predicate to be
 used by the comparator to determine the order of elements.</p>
 
 <p>Can be one of:</p>
 
 <ul>
-<li><code>function</code>: JavaScript's Array#sort comparator function</li>
+<li><code>function</code>: getter function. The result of this function will be sorted using the
+<code>&lt;</code>, <code>=</code>, <code>&gt;</code> operator</li>
 <li><code>string</code>: angular expression which evaluates to an object to order by, such as 'name' to
 sort by a property called 'name'. Optionally prefixed with <code>+</code> or <code>-</code> to control ascending
 or descending sort order (e.g. +name or -name).</li>
