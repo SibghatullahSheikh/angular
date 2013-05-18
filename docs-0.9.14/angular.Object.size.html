@@ -1,15 +1,18 @@
 <h1>angular.Object.size</h1>
 <div class="angular-object-size"><h2>Description</h2>
-<div class="description"><p>Determines the number of elements in an array or number of properties of an object.</p>
+<div class="description"><p>Determines the number of elements in an array, number of properties of an object or string
+length.</p>
 
 <p>Note: this function is used to augment the Object type in angular expressions. See
 <a href="#!angular.Object"><code>angular.Object</code></a> for more info.</p></div>
 <h2>Usage</h2>
-<div class="usage"><div ng:non-bindable=""><pre class="brush: js; html-script: true;">angular.Object.size(obj);</pre>
+<div class="usage"><div ng:non-bindable=""><pre class="brush: js; html-script: true;">angular.Object.size(obj, ownPropsOnly);</pre>
 </div>
 <h3>Parameters</h3>
-<ul class="parameters"><li><code ng:non-bindable="">obj – {Object|Array} – </code>
-<p>Object or array to inspect.</p></li>
+<ul class="parameters"><li><code ng:non-bindable="">obj – {Object|Array|string} – </code>
+<p>Object, array or string to inspect.</p></li>
+<li><code ng:non-bindable="">ownPropsOnly – {boolean} – </code>
+<p>Count only "own" properties in an object</p></li>
 </ul>
 <h3>Returns</h3>
 <div class="returns"><code ng:non-bindable="">{number}</code>

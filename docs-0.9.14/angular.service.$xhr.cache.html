@@ -10,7 +10,7 @@ requests. All cache misses are delegated to the $xhr service.</p></div>
 </li>
 </ul>
 <h2>Usage</h2>
-<div class="usage"><div ng:non-bindable=""><pre class="brush: js; html-script: true;">cache(method, url[, post], callback[, verifyCache]);</pre>
+<div class="usage"><div ng:non-bindable=""><pre class="brush: js; html-script: true;">cache(method, url[, post], callback[, verifyCache][, sync]);</pre>
 </div>
 <h3>Parameters</h3>
 <ul class="parameters"><li><code ng:non-bindable="">method – {string} – </code>
@@ -25,6 +25,8 @@ requests. All cache misses are delegated to the $xhr service.</p></div>
 <p>If <code>true</code> then a result is immediately returned from cache
 (if present) while a request is sent to the server for a fresh response that will update the
 cached entry. The <code>callback</code> function will be called when the response is received.</p></li>
+<li><code ng:non-bindable="">sync<i>(optional=false)</i> – {boolean} – </code>
+<p>in case of cache hit execute <code>callback</code> synchronously.</p></li>
 </ul>
 </div>
 <h2>Properties</h2>

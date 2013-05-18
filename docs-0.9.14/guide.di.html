@@ -97,7 +97,7 @@ application singletons), in tests it is important to not share singletons across
 for isolation reasons. We get this isolation by having each test create its own separate root scope.</p><div ng:non-bindable><pre class="brush: js; html-script: true;">
 // crate a root scope
 var rootScope = angular.scope();
-// accesss the service loctor
+// accesss the service locator
 var myService = rootScope.$service('myService');
 </pre></div><h2>Dependency Injection in Controllers</h2>
 
@@ -114,7 +114,7 @@ function MyController($route){
 }
 MyController.$inject = ['$route'];
 </pre></div><p>In this example, the <code>MyController</code> constructor function takes one argument, the
-(@link angular.service.$route $route) service. Angular is then responsible for supplying the
+<a href="#!angular.service.$route"><code>$route</code></a> service. Angular is then responsible for supplying the
 instance of <code>$route</code> to the controller when the constructor is instantiated. There are two ways to
 cause controller instantiation – by configuring routes with the $route service or by referencing the
 controller from the HTML template, such as:</p><div ng:non-bindable><pre class="brush: js; html-script: true;">
@@ -213,8 +213,8 @@ var fnThis = {salutation: 'Hello'}
 rootScope.$service(greet, fnThis, 'world');
 </pre></div><h2>Inferring <code>$inject</code></h2>
 
-<p><em>* EXPERIMENTAL: this is an experimental feature, see the important note at the end of this section
-for drawbacks. *</em></p>
+<p><strong>EXPERIMENTAL: this is an experimental feature, see the important note at the end of this section
+for drawbacks.</strong></p>
 
 <p>We resort to <code>$inject</code> and our own annotation because there is no way in JavaScript to get a list of
 arguments. Or is there? It turns out that calling <code>.toString()</code> on a function returns the function
@@ -233,7 +233,7 @@ fnA.$inject = ['$window', 'serviceA'];
 
 // inject '$window', 'serviceA', curry 'name';
 function fnB($window, serviceA_, name){};
-// implies: fnA.$inject = ['$window', 'serviceA'];
+// implies: fnB.$inject = ['$window', 'serviceA'];
 </pre></div><p>If angular does not find an <code>$inject</code> annotation on the function, then it calls the <code>.toString()</code>
 and tries to infer what should be injected using the following rules:</p>
 

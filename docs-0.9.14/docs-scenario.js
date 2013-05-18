@@ -1,13 +1,13 @@
-describe("angular.attrMarkup", function(){
+describe("angular.directive", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.attrMarkup");
+    browser().navigateTo("index.html#!angular.directive");
   });
 
 });
 
-describe("angular.directive", function(){
+describe("angular.attrMarkup", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.directive");
+    browser().navigateTo("index.html#!angular.attrMarkup");
   });
 
 });
@@ -32,13 +32,6 @@ describe("angular.filter", function(){
 
 });
 
-describe("angular.markup", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.markup");
-  });
-
-});
-
 describe("angular.formatter", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.formatter");
@@ -57,9 +50,9 @@ describe("angular.formatter", function(){
 
 });
 
-describe("angular", function(){
+describe("angular.markup", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular");
+    browser().navigateTo("index.html#!angular.markup");
   });
 
 });
@@ -92,19 +85,30 @@ describe("angular.validator", function(){
 
 });
 
+describe("angular.service", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.service");
+  });
+
+  it('should test service', function(){
+    expect(element(':input[name=message]').val()).toEqual('test');
+  });
+
+});
+
+describe("angular", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular");
+  });
+
+});
+
 describe("angular.widget", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.widget");
   });
 
   
-
-});
-
-describe("contribute", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!contribute");
-  });
 
 });
 
@@ -119,23 +123,6 @@ describe("cookbook.buzz", function(){
      element('.buzz a:contains(Expand replies):first').click();
      expect(repeater('div.reply').count()).toBeGreaterThan(0);
    });
-
-});
-
-describe("cookbook.deeplinking", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!cookbook.deeplinking");
-  });
-
-    it('should navigate to URL', function(){
-     element('a:contains(Welcome)').click();
-     expect(element('ng\\:view').text()).toMatch(/Hello anonymous/);
-     element('a:contains(Settings)').click();
-     input('form.name').enter('yourname');
-     element(':button:contains(Save)').click();
-     element('a:contains(Welcome)').click();
-     expect(element('ng\\:view').text()).toMatch(/Hello yourname/);
-    });
 
 });
 
@@ -206,6 +193,13 @@ describe("cookbook.formadvanced", function(){
 
 });
 
+describe("contribute", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!contribute");
+  });
+
+});
+
 describe("cookbook.helloworld", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!cookbook.helloworld");
@@ -215,6 +209,51 @@ describe("cookbook.helloworld", function(){
     expect(binding('name')).toEqual('World');
     input('name').enter('angular');
     expect(binding('name')).toEqual('angular');
+  });
+
+});
+
+describe("cookbook.deeplinking", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!cookbook.deeplinking");
+  });
+
+    it('should navigate to URL', function(){
+     element('a:contains(Welcome)').click();
+     expect(element('ng\\:view').text()).toMatch(/Hello anonymous/);
+     element('a:contains(Settings)').click();
+     input('form.name').enter('yourname');
+     element(':button:contains(Save)').click();
+     element('a:contains(Welcome)').click();
+     expect(element('ng\\:view').text()).toMatch(/Hello yourname/);
+    });
+
+});
+
+describe("cookbook", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!cookbook");
+  });
+
+});
+
+describe("downloading", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!downloading");
+  });
+
+});
+
+describe("faq", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!faq");
+  });
+
+});
+
+describe("guide.css", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!guide.css");
   });
 
 });
@@ -241,30 +280,9 @@ describe("cookbook.mvc", function(){
 
 });
 
-describe("cookbook", function(){
+describe("guide.di", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!cookbook");
-  });
-
-});
-
-describe("downloading", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!downloading");
-  });
-
-});
-
-describe("faq", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!faq");
-  });
-
-});
-
-describe("guide.bootstrap", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!guide.bootstrap");
+    browser().navigateTo("index.html#!guide.di");
   });
 
 });
@@ -276,9 +294,30 @@ describe("guide.compiler", function(){
 
 });
 
-describe("guide.css", function(){
+describe("guide", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!guide.css");
+    browser().navigateTo("index.html#!guide");
+  });
+
+});
+
+describe("guide.bootstrap", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!guide.bootstrap");
+  });
+
+});
+
+describe("guide.template", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!guide.template");
+  });
+
+});
+
+describe("guide.testing", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!guide.testing");
   });
 
 });
@@ -286,13 +325,6 @@ describe("guide.css", function(){
 describe("guide.data-binding", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!guide.data-binding");
-  });
-
-});
-
-describe("guide.di", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!guide.di");
   });
 
 });
@@ -337,55 +369,6 @@ describe("guide.expression", function(){
 
 });
 
-describe("guide", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!guide");
-  });
-
-});
-
-describe("guide.overview", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!guide.overview");
-  });
-
-  it('should show of angular binding', function(){
-    expect(binding('qty * cost')).toEqual('$19.95');
-    input('qty').enter('2');
-    input('cost').enter('5.00');
-    expect(binding('qty * cost')).toEqual('$10.00');
-  });
-
-});
-
-describe("guide.template", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!guide.template");
-  });
-
-});
-
-describe("guide.testing", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!guide.testing");
-  });
-
-});
-
-describe("started", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!started");
-  });
-
-});
-
-describe("testimonials", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!testimonials");
-  });
-
-});
-
 describe("angular.mock", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.mock");
@@ -410,6 +393,13 @@ describe("angular.mock.service.$exceptionHandler", function(){
 describe("angular.mock.service.$log", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.mock.service.$log");
+  });
+
+});
+
+describe("angular.service.$browser", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.service.$browser");
   });
 
 });
@@ -570,13 +560,6 @@ describe("angular.bind", function(){
 describe("angular.directive.ng:autobind", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.directive.ng:autobind");
-  });
-
-});
-
-describe("angular.service.$browser", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.service.$browser");
   });
 
 });
@@ -784,6 +767,20 @@ describe("angular.Array.limitTo", function(){
 
 });
 
+describe("guide.overview", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!guide.overview");
+  });
+
+  it('should show of angular binding', function(){
+    expect(binding('qty * cost')).toEqual('$19.95');
+    input('qty').enter('2');
+    input('cost').enter('5.00');
+    expect(binding('qty * cost')).toEqual('$10.00');
+  });
+
+});
+
 describe("angular.compile", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.compile");
@@ -803,6 +800,152 @@ describe("angular.directive.ng:eval-order", function(){
     expect(using('.doc-example-live div:first').binding("items.$sum('total')")).toBe('$9.99');
     expect(using('.doc-example-live div:last').binding("items.$sum('total')")).toBe('$19.98');
   });
+
+});
+
+describe("angular.filter.currency", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.filter.currency");
+  });
+
+  it('should init with 1234.56', function(){
+    expect(binding('amount | currency')).toBe('$1,234.56');
+  });
+  it('should update', function(){
+    input('amount').enter('-1234');
+    expect(binding('amount | currency')).toBe('$-1,234.00');
+    expect(element('.doc-example-live .ng-binding').attr('className')).
+      toMatch(/ng-format-negative/);
+  });
+
+});
+
+describe("angular.filter.number", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.filter.number");
+  });
+
+  it('should format numbers', function(){
+    expect(binding('val | number')).toBe('1,234.57');
+    expect(binding('val | number:0')).toBe('1,235');
+    expect(binding('-val | number:4')).toBe('-1,234.5679');
+  });
+  
+  it('should update', function(){
+    input('val').enter('3374.333');
+    expect(binding('val | number')).toBe('3,374.33');
+    expect(binding('val | number:0')).toBe('3,374');
+    expect(binding('-val | number:4')).toBe('-3,374.3330');
+  });
+
+});
+
+describe("angular.filter.date", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.filter.date");
+  });
+
+  it('should format date', function(){
+    expect(binding("1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'")).
+       toMatch(/2010\-10\-2\d \d{2}:\d{2}:\d{2} \-?\d{4}/);
+    expect(binding("'1288323623006' | date:'MM/dd/yyyy @ h:mma'")).
+       toMatch(/10\/2\d\/2010 @ \d{1,2}:\d{2}(am|pm)/);
+  });
+
+});
+
+describe("angular.filter.json", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.filter.json");
+  });
+
+  it('should jsonify filtered objects', function() {
+    expect(binding('obj | json')).toBe('{\n  "a":1,\n  "b":[]}');
+  });
+  
+  it('should update', function() {
+    input('objTxt').enter('[1, 2, 3]');
+    expect(binding('obj | json')).toBe('[1,2,3]');
+  });
+
+});
+
+describe("angular.filter.lowercase", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.filter.lowercase");
+  });
+
+});
+
+describe("angular.filter.uppercase", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.filter.uppercase");
+  });
+
+});
+
+describe("angular.filter.html", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.filter.html");
+  });
+
+  it('should sanitize the html snippet ', function(){
+    expect(using('#html-filter').binding('snippet | html')).
+      toBe('<p>an html\n<em>click here</em>\nsnippet</p>');
+  });
+  
+  it('should escape snippet without any filter', function() {
+    expect(using('#escaped-html').binding('snippet')).
+      toBe("&lt;p style=\"color:blue\"&gt;an html\n" +
+           "&lt;em onmouseover=\"this.textContent='PWN3D!'\"&gt;click here&lt;/em&gt;\n" +
+           "snippet&lt;/p&gt;");
+  });
+  
+  it('should inline raw snippet if filtered as unsafe', function() {
+    expect(using('#html-unsafe-filter').binding("snippet | html:'unsafe'")).
+      toBe("<p style=\"color:blue\">an html\n" +
+           "<em onmouseover=\"this.textContent='PWN3D!'\">click here</em>\n" +
+           "snippet</p>");
+  });
+  
+  it('should update', function(){
+    input('snippet').enter('new <b>text</b>');
+    expect(using('#html-filter').binding('snippet | html')).toBe('new <b>text</b>');
+    expect(using('#escaped-html').binding('snippet')).toBe("new &lt;b&gt;text&lt;/b&gt;");
+    expect(using('#html-unsafe-filter').binding("snippet | html:'unsafe'")).toBe('new <b>text</b>');
+  });
+
+});
+
+describe("angular.filter.linky", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.filter.linky");
+  });
+
+    it('should linkify the snippet with urls', function(){
+      expect(using('#linky-filter').binding('snippet | linky')).
+        toBe('Pretty text with some links:\n' +
+             '<a href="http://angularjs.org/">http://angularjs.org/</a>,\n' +
+             '<a href="mailto:us@somewhere.org">us@somewhere.org</a>,\n' +
+             '<a href="mailto:another@somewhere.org">another@somewhere.org</a>,\n' +
+             'and one more: <a href="ftp://127.0.0.1/">ftp://127.0.0.1/</a>.');
+    });
+  
+    it ('should not linkify snippet without the linky filter', function() {
+      expect(using('#escaped-html').binding('snippet')).
+        toBe("Pretty text with some links:\n" +
+             "http://angularjs.org/,\n" +
+             "mailto:us@somewhere.org,\n" +
+             "another@somewhere.org,\n" +
+             "and one more: ftp://127.0.0.1/.");
+    });
+  
+    it('should update', function(){
+      input('snippet').enter('new http://link.');
+      expect(using('#linky-filter').binding('snippet | linky')).
+        toBe('new <a href="http://link">http://link</a>.');
+      expect(using('#escaped-html').binding('snippet')).toBe('new http://link.');
+    });
 
 });
 
@@ -1025,149 +1168,10 @@ describe("angular.directive.ng:style", function(){
 
 });
 
-describe("angular.filter.currency", function(){
+describe("angular.injector", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.filter.currency");
+    browser().navigateTo("index.html#!angular.injector");
   });
-
-  it('should init with 1234.56', function(){
-    expect(binding('amount | currency')).toBe('$1,234.56');
-  });
-  it('should update', function(){
-    input('amount').enter('-1234');
-    expect(binding('amount | currency')).toBe('$-1,234.00');
-    expect(element('.doc-example-live .ng-binding').attr('className')).
-      toMatch(/ng-format-negative/);
-  });
-
-});
-
-describe("angular.filter.number", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.filter.number");
-  });
-
-  it('should format numbers', function(){
-    expect(binding('val | number')).toBe('1,234.57');
-    expect(binding('val | number:0')).toBe('1,235');
-    expect(binding('-val | number:4')).toBe('-1,234.5679');
-  });
-  
-  it('should update', function(){
-    input('val').enter('3374.333');
-    expect(binding('val | number')).toBe('3,374.33');
-    expect(binding('val | number:0')).toBe('3,374');
-    expect(binding('-val | number:4')).toBe('-3,374.3330');
-  });
-
-});
-
-describe("angular.filter.date", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.filter.date");
-  });
-
-  it('should format date', function(){
-    expect(binding("1288323623006 | date:'yyyy-MM-dd HH:mm:ss Z'")).
-       toMatch(/2010\-10\-2\d \d{2}:\d{2}:\d{2} \-?\d{4}/);
-    expect(binding("'1288323623006' | date:'MM/dd/yyyy @ h:mma'")).
-       toMatch(/10\/2\d\/2010 @ \d{1,2}:\d{2}(am|pm)/);
-  });
-
-});
-
-describe("angular.filter.json", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.filter.json");
-  });
-
-  it('should jsonify filtered objects', function() {
-    expect(binding('obj | json')).toBe('{\n  "a":1,\n  "b":[]}');
-  });
-  
-  it('should update', function() {
-    input('objTxt').enter('[1, 2, 3]');
-    expect(binding('obj | json')).toBe('[1,2,3]');
-  });
-
-});
-
-describe("angular.filter.lowercase", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.filter.lowercase");
-  });
-
-});
-
-describe("angular.filter.uppercase", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.filter.uppercase");
-  });
-
-});
-
-describe("angular.filter.html", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.filter.html");
-  });
-
-  it('should sanitize the html snippet ', function(){
-    expect(using('#html-filter').binding('snippet | html')).
-      toBe('<p>an html\n<em>click here</em>\nsnippet</p>');
-  });
-  
-  it('should escape snippet without any filter', function() {
-    expect(using('#escaped-html').binding('snippet')).
-      toBe("&lt;p style=\"color:blue\"&gt;an html\n" +
-           "&lt;em onmouseover=\"this.textContent='PWN3D!'\"&gt;click here&lt;/em&gt;\n" +
-           "snippet&lt;/p&gt;");
-  });
-  
-  it('should inline raw snippet if filtered as unsafe', function() {
-    expect(using('#html-unsafe-filter').binding("snippet | html:'unsafe'")).
-      toBe("<p style=\"color:blue\">an html\n" +
-           "<em onmouseover=\"this.textContent='PWN3D!'\">click here</em>\n" +
-           "snippet</p>");
-  });
-  
-  it('should update', function(){
-    input('snippet').enter('new <b>text</b>');
-    expect(using('#html-filter').binding('snippet | html')).toBe('new <b>text</b>');
-    expect(using('#escaped-html').binding('snippet')).toBe("new &lt;b&gt;text&lt;/b&gt;");
-    expect(using('#html-unsafe-filter').binding("snippet | html:'unsafe'")).toBe('new <b>text</b>');
-  });
-
-});
-
-describe("angular.filter.linky", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.filter.linky");
-  });
-
-    it('should linkify the snippet with urls', function(){
-      expect(using('#linky-filter').binding('snippet | linky')).
-        toBe('Pretty text with some links:\n' +
-             '<a href="http://angularjs.org/">http://angularjs.org/</a>,\n' +
-             '<a href="mailto:us@somewhere.org">us@somewhere.org</a>,\n' +
-             '<a href="mailto:another@somewhere.org">another@somewhere.org</a>,\n' +
-             'and one more: <a href="ftp://127.0.0.1/">ftp://127.0.0.1/</a>.');
-    });
-  
-    it ('should not linkify snippet without the linky filter', function() {
-      expect(using('#escaped-html').binding('snippet')).
-        toBe("Pretty text with some links:\n" +
-             "http://angularjs.org/,\n" +
-             "mailto:us@somewhere.org,\n" +
-             "another@somewhere.org,\n" +
-             "and one more: ftp://127.0.0.1/.");
-    });
-  
-    it('should update', function(){
-      input('snippet').enter('new http://link.');
-      expect(using('#linky-filter').binding('snippet | linky')).
-        toBe('new <a href="http://link">http://link</a>.');
-      expect(using('#escaped-html').binding('snippet')).toBe('new http://link.');
-    });
 
 });
 
@@ -1255,23 +1259,16 @@ describe("angular.formatter.index", function(){
 
 });
 
-describe("angular.injector", function(){
+describe("testimonials", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.injector");
+    browser().navigateTo("index.html#!testimonials");
   });
 
 });
 
-describe("angular.toJson", function(){
+describe("started", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.toJson");
-  });
-
-});
-
-describe("angular.fromJson", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.fromJson");
+    browser().navigateTo("index.html#!started");
   });
 
 });
@@ -1290,99 +1287,16 @@ describe("angular.directive.ng:src", function(){
 
 });
 
-describe("angular.service", function(){
+describe("angular.toJson", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.service");
-  });
-
-  it('should test service', function(){
-    expect(element(':input[name=message]').val()).toEqual('test');
+    browser().navigateTo("index.html#!angular.toJson");
   });
 
 });
 
-describe("angular.scope", function(){
+describe("angular.fromJson", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope");
-  });
-
-    it('should inherit the salutation property and override the name property', function() {
-      expect(using('.doc-example-live').repeater('li').row(0)).
-        toEqual(['0', 'Hello', 'World']);
-      expect(using('.doc-example-live').repeater('li').row(1)).
-        toEqual(['1', 'Hello', 'Earth']);
-      expect(using('.doc-example-live').element('pre').text()).
-        toBe('       $index=\n       salutation=Hello\n       name=Misko');
-    });
-
-});
-
-describe("angular.scope.$bind", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope.$bind");
-  });
-
-});
-
-describe("angular.scope.$get", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope.$get");
-  });
-
-});
-
-describe("angular.scope.$set", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope.$set");
-  });
-
-});
-
-describe("angular.scope.$eval", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope.$eval");
-  });
-
-});
-
-describe("angular.scope.$tryEval", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope.$tryEval");
-  });
-
-});
-
-describe("angular.scope.$watch", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope.$watch");
-  });
-
-});
-
-describe("angular.scope.$onEval", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope.$onEval");
-  });
-
-});
-
-describe("angular.scope.$become", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope.$become");
-  });
-
-});
-
-describe("angular.scope.$new", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope.$new");
-  });
-
-});
-
-describe("angular.scope.$service", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.scope.$service");
+    browser().navigateTo("index.html#!angular.fromJson");
   });
 
 });
@@ -1711,6 +1625,92 @@ describe("angular.widget.ng:view", function(){
 
 });
 
+describe("angular.scope", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope");
+  });
+
+    it('should inherit the salutation property and override the name property', function() {
+      expect(using('.doc-example-live').repeater('li').row(0)).
+        toEqual(['0', 'Hello', 'World']);
+      expect(using('.doc-example-live').repeater('li').row(1)).
+        toEqual(['1', 'Hello', 'Earth']);
+      expect(using('.doc-example-live').element('pre').text()).
+        toBe('       $index=\n       salutation=Hello\n       name=Misko');
+    });
+
+});
+
+describe("angular.scope.$bind", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope.$bind");
+  });
+
+});
+
+describe("angular.scope.$get", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope.$get");
+  });
+
+});
+
+describe("angular.scope.$set", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope.$set");
+  });
+
+});
+
+describe("angular.scope.$eval", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope.$eval");
+  });
+
+});
+
+describe("angular.scope.$tryEval", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope.$tryEval");
+  });
+
+});
+
+describe("angular.scope.$watch", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope.$watch");
+  });
+
+});
+
+describe("angular.scope.$onEval", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope.$onEval");
+  });
+
+});
+
+describe("angular.scope.$become", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope.$become");
+  });
+
+});
+
+describe("angular.scope.$new", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope.$new");
+  });
+
+});
+
+describe("angular.scope.$service", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.scope.$service");
+  });
+
+});
+
 describe("angular.service.$cookies", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.service.$cookies");
@@ -1732,6 +1732,13 @@ describe("angular.service.$defer", function(){
 
 });
 
+describe("angular.service.$exceptionHandler", function(){
+  beforeEach(function(){
+    browser().navigateTo("index.html#!angular.service.$exceptionHandler");
+  });
+
+});
+
 describe("angular.service.$document", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.service.$document");
@@ -1739,9 +1746,9 @@ describe("angular.service.$document", function(){
 
 });
 
-describe("angular.service.$exceptionHandler", function(){
+describe("angular.service.$hover", function(){
   beforeEach(function(){
-    browser().navigateTo("index.html#!angular.service.$exceptionHandler");
+    browser().navigateTo("index.html#!angular.service.$hover");
   });
 
 });
@@ -1792,13 +1799,6 @@ describe("angular.service.$route", function(){
 describe("angular.service.$updateView", function(){
   beforeEach(function(){
     browser().navigateTo("index.html#!angular.service.$updateView");
-  });
-
-});
-
-describe("angular.service.$hover", function(){
-  beforeEach(function(){
-    browser().navigateTo("index.html#!angular.service.$hover");
   });
 
 });
