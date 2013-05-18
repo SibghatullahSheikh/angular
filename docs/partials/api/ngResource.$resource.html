@@ -2,12 +2,25 @@
 <span class="hint">(service in module <code ng:non-bindable="">ngResource</code>
 )</span>
 </h1>
-<div><h2 id="Description">Description</h2>
+<div><a href="http://github.com/angular/angular.js/edit/master/src/ngResource/resource.js" class="improve-docs btn btn-primary">Improve this doc</a><h2 id="Description">Description</h2>
 <div class="description"><p>A factory which creates a resource object that lets you interact with
 <a href="http://en.wikipedia.org/wiki/Representational_State_Transfer">RESTful</a> server-side data sources.</p>
 
 <p>The returned resource object has action methods which provide high-level behaviors without
-the need to interact with the low level <a href="api/ng.$http"><code>$http</code></a> service.</p></div>
+the need to interact with the low level <a href="api/ng.$http"><code>$http</code></a> service.</p>
+
+<h3>Installation</h3>
+
+<p>To use $resource make sure you have included the <code>angular-resource.js</code> that comes in Angular 
+package. You can also find this file on Google CDN, bower as well as at
+<a href="http://code.angularjs.org/">code.angularjs.org</a>.</p>
+
+<p>Finally load the module in your application:</p>
+
+<pre><code>   angular.module('app', ['ngResource']);
+</code></pre>
+
+<p>and you are ready to get started!</p></div>
 <h2 id="Dependencies">Dependencies</h2>
 <ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$http">$http</a></code>
 </li>
