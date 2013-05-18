@@ -2,7 +2,7 @@
 <span class="hint">(Type in module <code ng:non-bindable="">ng</code>
 )</span>
 </h1>
-<div><a href="http://github.com/angular/angular.js/edit/master/src/loader.js" class="improve-docs btn btn-primary">Improve this doc</a><h2 id="Description">Description</h2>
+<div><h2 id="Description">Description</h2>
 <div class="description"><p>Interface for configuring angular <a href="api/angular.module"><code>modules</code></a>.</p></div>
 <div class="member method"><h2 id="Methods">Methods</h2>
 <ul class="methods"><li><h3 id="config">config(configFn)</h3>
@@ -70,8 +70,8 @@ directives.</p></li>
 </div>
 </li>
 <li><h3 id="run">run(initializationFn)</h3>
-<div class="run"><p>Use this method to register work which should be performed when the injector is done
-loading all modules.</p><h4 id="Parameters">Parameters</h4>
+<div class="run"><p>Use this method to register work which needs to be performed when the injector with
+with the current module is finished loading.</p><h4 id="Parameters">Parameters</h4>
 <ul class="parameters"><li><code ng:non-bindable="">initializationFn – {Function} – </code>
 <p>Execute this function after injector creation.
 Useful for application initialization.</p></li>

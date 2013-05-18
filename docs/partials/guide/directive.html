@@ -1,7 +1,7 @@
 <h1><code ng:non-bindable=""></code>
 <span class="hint"></span>
 </h1>
-<div><a href="http://github.com/angular/angular.js/edit/master/docs/content/guide/directive.ngdoc" class="improve-docs btn btn-primary">Improve this doc</a><p>Directives are a way to teach HTML new tricks. During DOM compilation directives are matched
+<div><p>Directives are a way to teach HTML new tricks. During DOM compilation directives are matched
 against the HTML and executed. This allows directives to register behavior, or transform the DOM.</p>
 
 <p>Angular comes with a built in set of directives which are useful for building web applications but
@@ -30,39 +30,39 @@ attribute only.)</p>
 the following example.</p>
 
 <h3>Source</h3>
-<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-42" source-edit-css="" source-edit-js="script.js-41" source-edit-unit="" source-edit-scenario="scenario.js-43"></div>
+<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-50" source-edit-css="" source-edit-js="script.js-49" source-edit-unit="" source-edit-scenario="scenario.js-51"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-42" ng-html-wrap=" angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-42">
+<pre class="prettyprint linenums" ng-set-text="index.html-50" ng-html-wrap=" angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-50">
    
    <div ng-controller="Ctrl1">
      Hello <input ng-model='name'> <hr/>
-     &lt;span ng:bind="name"&gt; <span ng:bind="name"></span> <br/>
-     &lt;span ng_bind="name"&gt; <span ng_bind="name"></span> <br/>
-     &lt;span ng-bind="name"&gt; <span ng-bind="name"></span> <br/>
-     &lt;span data-ng-bind="name"&gt; <span data-ng-bind="name"></span> <br/>
-     &lt;span x-ng-bind="name"&gt; <span x-ng-bind="name"></span> <br/>
+     &ltspan ng:bind="name"&gt <span ng:bind="name"></span> <br/>
+     &ltspan ng_bind="name"&gt <span ng_bind="name"></span> <br/>
+     &ltspan ng-bind="name"&gt <span ng-bind="name"></span> <br/>
+     &ltspan data-ng-bind="name"&gt <span data-ng-bind="name"></span> <br/>
+     &ltspan x-ng-bind="name"&gt <span x-ng-bind="name"></span> <br/>
    </div>
   </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-41"></pre>
-<script type="text/ng-template" id="script.js-41">
+<pre class="prettyprint linenums" ng-set-text="script.js-49"></pre>
+<script type="text/ng-template" id="script.js-49">
      function Ctrl1($scope) {
        $scope.name = 'angular';
      }
    </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-43"></pre>
-<script type="text/ng-template" id="scenario.js-43">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-51"></pre>
+<script type="text/ng-template" id="scenario.js-51">
     it('should show off bindings', function() {
       expect(element('div[ng-controller="Ctrl1"] span[ng-bind]').text()).toBe('angular');
     });
   </script>
 </div>
 </div><h3>Demo</h3>
-<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-42" ng-eval-javascript="script.js-41"></div>
+<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-50" ng-eval-javascript="script.js-49"></div>
 
 <h2>String interpolation</h2>
 
@@ -72,7 +72,7 @@ contain embedded expressions. These expressions are registered as <a href="api/n
 here:</p>
 
 <pre class="prettyprint linenums">
-&lt;a href="img/{{username}}.jpg"&gt;Hello {{username}}!&lt;/a&gt;
+&lt;img src="img/{{username}}.jpg"&gt;Hello {{username}}!&lt;/img&gt;
 </pre>
 
 <h2>Compilation process, and directive matching</h2>
@@ -100,7 +100,7 @@ scope and the DOM. A change in the scope is reflected in the DOM.</p></li>
   var $compile = ...; // injected into your code
   var scope = ...;
 
-  var html = '&lt;div ng-bind="exp"&gt;&lt;/div&gt;';
+  var html = '&lt;div ng-bind='exp'&gt;&lt;/div&gt;';
 
   // Step 1: parse HTML into DOM element
   var template = angular.element(html);
@@ -115,7 +115,7 @@ scope and the DOM. A change in the scope is reflected in the DOM.</p></li>
 <h3>Reasons behind the compile/link separation</h3>
 
 <p>At this point you may wonder why the compile process is broken down to a compile and link phase.
-To understand this, let's look at a real world example with a repeater:</p>
+To understand this, let's look at a real world example with repeater:</p>
 
 <pre class="prettyprint linenums">
   Hello {{user}}, you have these actions:
@@ -146,8 +146,8 @@ links a specific instance of the <a href="api/ng.$rootScope.Scope"><code>scope</
 instance of an <code>li</code> is performed.</p>
 
 <p><a href="api/ng.directive:ngRepeat"><code>ngRepeat</code></a> works by preventing the
-compilation process from descending into the <code>li</code> element. Instead the <a href="api/ng.directive:ngRepeat"><code>ngRepeat</code></a> directive compiles <code>li</code>
-separately. The result of the <code>li</code> element compilation is a linking function which contains all
+compilation process form descending into the <code>li</code> element. Instead the <a href="api/ng.directive:ngRepeat"><code>ngRepeat</code></a> directive compiles <code>li</code>
+separately. The result of of the <code>li</code> element compilation is a linking function which contains all
 of the directives contained in the <code>li</code> element, ready to be attached to a specific clone of the <code>li</code>
 element. At runtime the <a href="api/ng.directive:ngRepeat"><code>ngRepeat</code></a>
 watches the expression and as items are added to the array it clones the <code>li</code> element, creates a
@@ -171,10 +171,10 @@ as to copy content into the DOM from the scope.</p></li>
 <p>In this example we will build a directive that displays the current time.</p>
 
 <h3>Source</h3>
-<div source-edit="time" source-edit-deps="angular.js script.js" source-edit-html="index.html-45" source-edit-css="" source-edit-js="script.js-44" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="time" source-edit-deps="angular.js script.js" source-edit-html="index.html-53" source-edit-css="" source-edit-js="script.js-52" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-45" ng-html-wrap="time angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-45">
+<pre class="prettyprint linenums" ng-set-text="index.html-53" ng-html-wrap="time angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-53">
    
    <div ng-controller="Ctrl2">
      Date format: <input ng-model="format"> <hr/>
@@ -183,8 +183,8 @@ as to copy content into the DOM from the scope.</p></li>
   </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-44"></pre>
-<script type="text/ng-template" id="script.js-44">
+<pre class="prettyprint linenums" ng-set-text="script.js-52"></pre>
+<script type="text/ng-template" id="script.js-52">
      function Ctrl2($scope) {
        $scope.format = 'M/d/yy h:mm:ss a';
      }
@@ -219,7 +219,7 @@ as to copy content into the DOM from the scope.</p></li>
            }
 
            // listen on DOM destroy (removal) event, and cancel the next UI update
-           // to prevent updating time after the DOM element was removed.
+           // to prevent updating time ofter the DOM element was removed.
            element.bind('$destroy', function() {
              $timeout.cancel(timeoutId);
            });
@@ -230,7 +230,7 @@ as to copy content into the DOM from the scope.</p></li>
    </script>
 </div>
 </div><h3>Demo</h3>
-<div class="well doc-example-live" ng-embed-app="time" ng-set-html="index.html-45" ng-eval-javascript="script.js-44"></div>
+<div class="well doc-example-live" ng-embed-app="time" ng-set-html="index.html-53" ng-eval-javascript="script.js-52"></div>
 
 <h2>Writing directives (long version)</h2>
 
@@ -262,7 +262,7 @@ as to copy content into the DOM from the scope.</p></li>
 
 <p>In most cases you will not need such fine control and so the above can be simplified. All of the
 different parts of this skeleton are explained in following sections. In this section we are
-interested only in some of this skeleton.</p>
+interested only isomers of this skeleton.</p>
 
 <p>The first step in simplyfing the code is to rely on the default values. Therefore the above can be
 simplified as:</p>
@@ -303,7 +303,7 @@ makes it injectable following all of the rules of injection annotation.</p>
 <p>The directive definition object provides instructions to the <a href="api/ng.$compile"><code>compiler</code></a>. The attributes are:</p>
 
 <ul>
-<li><p><code>name</code> - Name of the current scope. Optional and defaults to the name at registration.</p></li>
+<li><p><code>name</code> - Name of the current scope. Optional defaults to the name at registration.</p></li>
 <li><p><code>priority</code> - When there are multiple directives defined on a single DOM element, sometimes it
 is necessary to specify the order in which the directives are applied. The <code>priority</code> is used
 to sort the directives before their <code>compile</code> functions get called. Higher <code>priority</code> goes
@@ -314,7 +314,7 @@ as the order of execution on same <code>priority</code> is undefined).</p></li>
 <li><p><code>scope</code> - If set to:</p>
 
 <ul><li><p><code>true</code> - then a new scope will be created for this directive. If multiple directives on the
-same element request a new scope, only one new scope is created. The new scope rule does not
+same element request new scope, only one new scope is created. The new scope rule does not
 apply for the root of the template since the root of the template always gets a new scope.</p></li>
 <li><p><code>{}</code> (object hash) - then a new 'isolate' scope is created. The 'isolate' scope differs from
 normal scope in that it does not prototypically inherit from the parent scope. This is useful
@@ -324,38 +324,36 @@ The 'isolate' scope takes an object hash which defines a set of local scope prop
 derived from the parent scope. These local properties are useful for aliasing values for
 templates. Locals definition is a hash of local scope property to its source:</p>
 
-<ul><li><p><code>@</code> or <code>@attr</code> - bind a local scope property to the value of DOM attribute. The result is
-always a string since DOM attributes are strings. If no <code>attr</code> name is specified  then the
-attribute name is assumed to be the same as the local name.
-Given <code>&lt;widget my-attr="hello {{name}}"&gt;</code> and widget definition
+<ul><li><p><code>@</code> or <code>@attr</code> - bind a local scope property to the DOM attribute. The result is always a
+string since DOM attributes are strings. If no <code>attr</code> name is specified then the local name
+and attribute name are same. Given <code>&lt;widget my-attr="hello {{name}}"&gt;</code> and widget definition
 of <code>scope: { localName:'@myAttr' }</code>, then widget scope property <code>localName</code> will reflect
 the interpolated value of <code>hello {{name}}</code>. As the <code>name</code> attribute changes so will the
 <code>localName</code> property on the widget scope. The <code>name</code> is read from the parent scope (not
 component scope).</p></li>
-<li><p><code>=</code> or <code>=attr</code> - set up bi-directional binding between a local scope property and the
-parent scope property of name defined via the value of the <code>attr</code> attribute. If no <code>attr</code>
-name is specified then the attribute name is assumed to be the same as the local name.
-Given <code>&lt;widget my-attr="parentModel"&gt;</code> and widget definition of
-<code>scope: { localModel:'=myAttr' }</code>, then widget scope property <code>localModel</code> will reflect the
+<li><p><code>=</code> or <code>=expression</code> - set up bi-directional binding between a local scope property and the
+parent scope property. If no <code>attr</code> name is specified then the local name and attribute
+name are same. Given <code>&lt;widget my-attr="parentModel"&gt;</code> and widget definition of
+<code>scope: { localModel:'=myAttr' }</code>, then widget scope property <code>localName</code> will reflect the
 value of <code>parentModel</code> on the parent scope. Any changes to <code>parentModel</code> will be reflected
 in <code>localModel</code> and any changes in <code>localModel</code> will reflect in <code>parentModel</code>.</p></li>
 <li><p><code>&amp;</code> or <code>&amp;attr</code> - provides a way to execute an expression in the context of the parent scope.
-If no <code>attr</code> name is specified then the attribute name is assumed to be the same as the
-local name. Given <code>&lt;widget my-attr="count = count + value"&gt;</code> and widget definition of
-<code>scope: { localFn:'&amp;myAttr' }</code>, then isolate scope property <code>localFn</code> will point to
-a function wrapper for the <code>count = count + value</code> expression. Often it's desirable to
-pass data from the isolated scope via an expression and to the parent scope, this can be
-done by passing a map of local variable names and values into the expression wrapper fn.
-For example, if the expression is <code>increment(amount)</code> then we can specify the amount value
-by calling the <code>localFn</code> as <code>localFn({amount: 22})</code>.</p></li></ul></li></ul></li>
+If no <code>attr</code> name is specified then the local name and attribute name are same.
+Given <code>&lt;widget my-attr="count = count + value"&gt;</code> and widget definition of
+<code>scope: { localFn:'increment()' }</code>, then isolate scope property <code>localFn</code> will point to
+a function wrapper for the <code>increment()</code> expression. Often it's desirable to pass data from
+the isolate scope via an expression and to the parent scope, this can be done by passing a
+map of local variable names and values into the expression wrapper fn. For example, if the
+expression is <code>increment(amount)</code> then we can specify the amount value by calling the
+<code>localFn</code> as <code>localFn({amount: 22})</code>.</p></li></ul></li></ul></li>
 <li><p><code>controller</code> - Controller constructor function. The controller is instantiated before the
 pre-linking phase and it is shared with other directives if they request it by name (see
 <code>require</code> attribute). This allows the directives to communicate with each other and augment
-each other's behavior. The controller is injectable with the following locals:</p>
+each other behavior. The controller is injectable with the following locals:</p>
 
 <ul><li><code>$scope</code> - Current scope associated with the element</li>
 <li><code>$element</code> - Current element</li>
-<li><code>$attrs</code> - Current attributes object for the element</li>
+<li><code>$attrs</code> - Current attributes obeject for the element</li>
 <li><code>$transclude</code> - A transclude linking function pre-bound to the correct transclusion scope:
 <code>function(cloneLinkingFn)</code>.</li></ul></li>
 <li><p><code>require</code> - Require another controller be passed into current directive linking function. The
@@ -373,8 +371,8 @@ declaration style. If omitted directives are allowed on attributes only.</p>
 <li><code>C</code> - Class: <code>&lt;div class="my-directive: exp;"&gt;&lt;/div&gt;</code></li>
 <li><code>M</code> - Comment: <code>&lt;!-- directive: my-directive exp --&gt;</code></li></ul></li>
 <li><p><code>template</code> - replace the current element with the contents of the HTML. The replacement process
-migrates all of the attributes / classes from the old element to the new one. See the
-<a href="guide/directive#Components">Creating Components</a> section below for more information.</p></li>
+migrates all of the attributes / classes from the old element to the new one. See Creating
+Widgets section below for more information.</p></li>
 <li><p><code>templateUrl</code> - Same as <code>template</code> but the template is loaded from the specified URL. Because
 the template loading is asynchronous the compilation/linking is suspended until the template
 is loaded.</p></li>
@@ -459,7 +457,7 @@ compiler linking function will fail to locate the correct elements for linking.<
 
 <h4>Post-linking function</h4>
 
-<p>Executed after the child elements are linked. It is safe to do DOM transformation in the post-linking function.</p>
+<p>Executed after the child elements are linked. Safe to do DOM transformation in here.</p>
 
 <p><a name="Attributes"></a></p>
 
@@ -512,7 +510,6 @@ dialog component may work.</p>
             on-ok="show = false; doSomething()"&gt;
        Body goes here: {{username}} is {{title}}.
     &lt;/dialog&gt;
-  &lt;/div&gt;
 </pre>
 
 <p>Clicking on the "show" button will open the dialog. The dialog will have a title, which is
@@ -522,7 +519,7 @@ into the dialog.</p>
 <p>Here is an example of what the template definition for the <code>dialog</code> widget may look like.</p>
 
 <pre class="prettyprint linenums">
-  &lt;div ng-show="visible"&gt;
+  &lt;div ng-show="show()"&gt;
     &lt;h3&gt;{{title}}&lt;/h3&gt;
     &lt;div class="body" ng-transclude&gt;&lt;/div&gt;
     &lt;div class="footer"&gt;
@@ -534,18 +531,18 @@ into the dialog.</p>
 
 <p>This will not render properly, unless we do some scope magic.</p>
 
-<p>The first issue we have to solve is that the dialog box template expects <code>title</code> to be defined, but
-the place of instantiation would like to bind to <code>username</code>. Furthermore the buttons expect the
-<code>onOk</code> and <code>onCancel</code> functions to be present in the scope. This limits the usefulness of the
+<p>The first issue we have to solve is that the dialog box template expect <code>title</code> to be defined, but
+the place of instantiation would like to bind to <code>username</code>. Furthermore the buttons expect <code>onOk</code>
+as well as <code>onCancel</code> functions to be present in the scope. This limits the usefulness of the
 widget. To solve the mapping issue we use the <code>locals</code> to create local variables which the template
 expects as follows:</p>
 
 <pre class="prettyprint linenums">
   scope: {
-    title: '@',             // the title uses the data-binding from the parent scope
-    onOk: '&',              // create a delegate onOk function
-    onCancel: '&',          // create a delegate onCancel function
-    visible: '='            // set up visible to accept data-binding
+    title: 'bind',          // set up title to accept data-binding
+    onOk: 'expression',     // create a delegate onOk function
+    onCancel: 'expression', // create a delegate onCancel function
+    show: 'accessor'        // create a getter/setter function for visibility.
   }
 </pre>
 
@@ -568,7 +565,7 @@ isolated scope then it will not be able to bind to anything. For this reason the
 is a child of the original scope, before the widget created an isolated scope for its local
 variables. This makes the transcluded and widget isolated scope siblings.</p>
 
-<p>This may seem to be unexpected complexity, but it gives the widget user and developer the least
+<p>This may seem as unexpected complexity, but it gives the widget user and developer the least
 surprise.</p>
 
 <p>Therefore the final directive definition looks something like this:</p>
@@ -576,16 +573,12 @@ surprise.</p>
 <pre class="prettyprint linenums">
 transclude: true,
 scope: {
-    title: '@',             // the title uses the data-binding from the parent scope
-    onOk: '&',              // create a delegate onOk function
-    onCancel: '&',          // create a delegate onCancel function
-    visible: '='            // set up visible to accept data-binding
-},
-restrict: 'E',
-replace: true
+  title: 'bind',          // set up title to accept data-binding
+  onOk: 'expression',     // create a delegate onOk function
+  onCancel: 'expression', // create a delegate onCancel function
+  show: 'accessor'        // create a getter/setter function for visibility.
+}
 </pre>
-
-<p><a name="Components"></a></p>
 
 <h2>Creating Components</h2>
 
@@ -596,10 +589,10 @@ can be built.</p>
 <p>Following is an example of building a reusable widget.</p>
 
 <h3>Source</h3>
-<div source-edit="zippyModule" source-edit-deps="angular.js script.js" source-edit-html="index.html-48" source-edit-css="style.css-47" source-edit-js="script.js-46" source-edit-unit="" source-edit-scenario="scenario.js-49"></div>
+<div source-edit="zippyModule" source-edit-deps="angular.js script.js" source-edit-html="index.html-56" source-edit-css="style.css-55" source-edit-js="script.js-54" source-edit-unit="" source-edit-scenario="scenario.js-57"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-48" ng-html-wrap="zippyModule angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-48">
+<pre class="prettyprint linenums" ng-set-text="index.html-56" ng-html-wrap="zippyModule angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-56">
    
    
    <div ng-controller="Ctrl3">
@@ -611,8 +604,8 @@ can be built.</p>
   </script>
 </div>
 <div class="tab-pane" title="style.css">
-<pre class="prettyprint linenums" ng-set-text="style.css-47"></pre>
-<style type="text/css" id="style.css-47">
+<pre class="prettyprint linenums" ng-set-text="style.css-55"></pre>
+<style type="text/css" id="style.css-55">
      .zippy {
        border: 1px solid black;
        display: inline-block;
@@ -634,8 +627,8 @@ can be built.</p>
    </style>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-46"></pre>
-<script type="text/ng-template" id="script.js-46">
+<pre class="prettyprint linenums" ng-set-text="script.js-54"></pre>
+<script type="text/ng-template" id="script.js-54">
      function Ctrl3($scope) {
        $scope.title = 'Lorem Ipsum';
        $scope.text = 'Neque porro quisquam est qui dolorem ipsum quia dolor...';
@@ -678,8 +671,8 @@ can be built.</p>
    </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-49"></pre>
-<script type="text/ng-template" id="scenario.js-49">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-57"></pre>
+<script type="text/ng-template" id="scenario.js-57">
     it('should bind and open / close', function() {
       input('title').enter('TITLE');
       input('text').enter('TEXT');
@@ -693,4 +686,4 @@ can be built.</p>
   </script>
 </div>
 </div><h3>Demo</h3>
-<div class="well doc-example-live" ng-embed-app="zippyModule" ng-set-html="index.html-48" ng-eval-javascript="script.js-46"></div></div>
+<div class="well doc-example-live" ng-embed-app="zippyModule" ng-set-html="index.html-56" ng-eval-javascript="script.js-54"></div></div>

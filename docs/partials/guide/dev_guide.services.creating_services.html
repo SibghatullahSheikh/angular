@@ -1,7 +1,7 @@
 <h1><code ng:non-bindable=""></code>
 <span class="hint"></span>
 </h1>
-<div><a href="http://github.com/angular/angular.js/edit/master/docs/content/guide/dev_guide.services.creating_services.ngdoc" class="improve-docs btn btn-primary">Improve this doc</a><p>While Angular offers several useful services, for any nontrivial application you'll find it useful
+<div><p>While Angular offers several useful services, for any nontrivial application you'll find it useful
 to write your own custom services. To do this you begin by registering a service factory function
 with a module either via the <a href="api/angular.module"><code>Module#factory api</code></a> or directly
 via the <a href="api/AUTO.$provide"><code>$provide</code></a> api inside of module config function.</p>
@@ -45,9 +45,9 @@ create this instance when called.</p>
 
 <h2>Dependencies</h2>
 
-<p>Services can not only be depended upon, but can also have their own dependencies. These can be specified
-as arguments of the factory function. <a href="guide/di">Read more</a> about dependency injection (DI)
-in Angular and the use of array notation and the $inject property to make DI annotation
+<p>Services can not only be depended upon, but also have its own dependencies. These can be specified
+as arguments of the factory function. <a href="guide/di">Read more</a> about the DI
+in Angular and the use of array notation and $inject property to make DI annotation
 minification-proof.</p>
 
 <p>Following is an example of a very simple service. This service depends on the <code>$window</code> service
@@ -74,7 +74,7 @@ angular.module('myModule', [], function($provide) {
 
 <p>All services in Angular are instantiated lazily. This means that a service will be created
 only when it is needed for instantiation of a service or an application component that depends on it.
-In other words, Angular won't instantiate services unless they are requested directly or
+In other words, Angular won't instantiate lazy services unless they are requested directly or
 indirectly by the application.</p>
 
 <h2>Services as singletons</h2>

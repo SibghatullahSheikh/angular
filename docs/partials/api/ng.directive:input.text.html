@@ -2,14 +2,13 @@
 <span class="hint">(directive in module <code ng:non-bindable="">ng</code>
 )</span>
 </h1>
-<div><a href="http://github.com/angular/angular.js/edit/master/src/ng/directive/input.js" class="improve-docs btn btn-primary">Improve this doc</a><h2 id="Description">Description</h2>
+<div><h2 id="Description">Description</h2>
 <div class="description"><p>Standard HTML text input with angular data binding.</p></div>
 <h2 id="Usage">Usage</h2>
 <div class="usage"><pre class="prettyprint linenums">&lt;input type="text"
        ng-model="{string}"
        [name="{string}"]
        [required]
-       [ng-required="{string}"]
        [ng-minlength="{number}"]
        [ng-maxlength="{number}"]
        [ng-pattern="{string}"]
@@ -20,11 +19,7 @@
 <li><code ng:non-bindable="">name<i>(optional)</i> – {string=} – </code>
 <p>Property name of the form under which the control is published.</p></li>
 <li><code ng:non-bindable="">required<i>(optional)</i> – {string=} – </code>
-<p>Adds <code>required</code> validation error key if the value is not entered.</p></li>
-<li><code ng:non-bindable="">ngRequired<i>(optional)</i> – {string=} – </code>
-<p>Adds <code>required</code> attribute and <code>required</code> validation constraint to
-the element when the ngRequired expression evaluates to true. Use <code>ngRequired</code> instead of
-<code>required</code> when you want to data-bind to the <code>required</code> attribute.</p></li>
+<p>Sets <code>required</code> validation error key if the value is not entered.</p></li>
 <li><code ng:non-bindable="">ngMinlength<i>(optional)</i> – {number=} – </code>
 <p>Sets <code>minlength</code> validation error key if the value is shorter than
 minlength.</p></li>
@@ -42,10 +37,10 @@ interaction with the input element.</p></li>
 </div>
 <h2 id="Example">Example</h2>
 <div class="example"><h4>Source</h4>
-<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-117" source-edit-css="" source-edit-js="script.js-116" source-edit-unit="" source-edit-scenario="scenario.js-118"></div>
+<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-102" source-edit-css="" source-edit-js="script.js-101" source-edit-unit="" source-edit-scenario="scenario.js-103"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-117" ng-html-wrap=" angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-117">
+<pre class="prettyprint linenums" ng-set-text="index.html-102" ng-html-wrap=" angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-102">
  
  <form name="myForm" ng-controller="Ctrl">
    Single word: <input type="text" name="input" ng-model="text"
@@ -64,8 +59,8 @@ interaction with the input element.</p></li>
 </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-116"></pre>
-<script type="text/ng-template" id="script.js-116">
+<pre class="prettyprint linenums" ng-set-text="script.js-101"></pre>
+<script type="text/ng-template" id="script.js-101">
    function Ctrl($scope) {
      $scope.text = 'guest';
      $scope.word = /^\w*$/;
@@ -73,8 +68,8 @@ interaction with the input element.</p></li>
  </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-118"></pre>
-<script type="text/ng-template" id="scenario.js-118">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-103"></pre>
+<script type="text/ng-template" id="scenario.js-103">
   it('should initialize to model', function() {
     expect(binding('text')).toEqual('guest');
     expect(binding('myForm.input.$valid')).toEqual('true');
@@ -93,5 +88,5 @@ interaction with the input element.</p></li>
 </script>
 </div>
 </div><h4>Demo</h4>
-<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-117" ng-eval-javascript="script.js-116"></div></div>
+<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-102" ng-eval-javascript="script.js-101"></div></div>
 </div>

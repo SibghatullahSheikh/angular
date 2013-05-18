@@ -30,17 +30,9 @@ docsApp.directive.code = function() {
 
 docsApp.directive.sourceEdit = function(getEmbeddedTemplate) {
   return {
-    template: '<div class="btn-group pull-right">' +
-        '<a class="btn dropdown-toggle btn-primary" data-toggle="dropdown" href>' +
-        '  <i class="icon-pencil icon-white"></i> Edit<span class="caret"></span>' +
-        '</a>' +
-        '<ul class="dropdown-menu">' +
-        '  <li><a ng-click="plunkr($event)" href="">In Plunkr</a></li>' +
-        '  <li><a ng-click="fiddle($event)" href="">In JsFiddle</a></li>' +
-        '</ul>' +
-        '</div>',
+    template: '<button ng-click="fiddle($event)" class="btn btn-primary pull-right"><i class="icon-pencil icon-white"></i> Edit</button>\n',
     scope: true,
-    controller: function($scope, $attrs, openJsFiddle, openPlunkr) {
+    controller: function($scope, $attrs, openJsFiddle) {
       var sources = {
         module: $attrs.sourceEdit,
         deps: read($attrs.sourceEditDeps),
@@ -53,19 +45,14 @@ docsApp.directive.sourceEdit = function(getEmbeddedTemplate) {
       $scope.fiddle = function(e) {
         e.stopPropagation();
         openJsFiddle(sources);
-      };
-      $scope.plunkr = function(e) {
-        e.stopPropagation();
-        openPlunkr(sources);
-      };
+      }
     }
   }
 
   function read(text) {
     var files = [];
     angular.forEach(text ? text.split(' ') : [], function(refId) {
-      // refId is index.html-343, so we need to strip the unique ID when exporting the name
-      files.push({name: refId.replace(/-\d+$/, ''), content: getEmbeddedTemplate(refId)});
+      files.push({name: refId.split('-')[0], content: getEmbeddedTemplate(refId)});
     });
     return files;
   }
@@ -124,6 +111,8 @@ docsApp.directive.docTutorialReset = function() {
         '<div class="tabbable" ng-show="show" ng-model="$cookies.platformPreference">\n' +
           tab('Git on Mac/Linux', 'git checkout -f step-' + step, 'gitUnix', step) +
           tab('Git on Windows', 'git checkout -f step-' + step, 'gitWin', step) +
+          tab('Snapshots on Mac/Linux', './goto_step.sh ' + step, 'snapshotUnix', step) +
+          tab('Snapshots on on Windows', './goto_step.bat ' + step, 'snapshotWin', step) +
         '</div>\n');
     }
   };
@@ -158,49 +147,8 @@ docsApp.serviceFactory.formPostData = function($document) {
   };
 };
 
-docsApp.serviceFactory.openPlunkr = function(templateMerge, formPostData, angularUrls) {
-  return function(content) {
-    var allFiles = [].concat(content.js, content.css, content.html);
-    var indexHtmlContent = '<!doctype html>\n' +
-        '<html ng-app>\n' +
-        '  <head>\n' +
-        '    <script src="{{angularJSUrl}}"></script>\n' +
-        '{{scriptDeps}}\n' +
-        '  </head>\n' +
-        '  <body>\n\n' +
-        '{{indexContents}}' +
-        '\n\n  </body>\n' +
-        '</html>\n';
-    var scriptDeps = '';
-    angular.forEach(content.deps, function(file) {
-      if (file.name !== 'angular.js') {
-        scriptDeps += '    <script src="' + file.name + '"></script>\n'
-      }
-    });
-    indexProp = {
-      angularJSUrl: angularUrls['angular.js'],
-      scriptDeps: scriptDeps,
-      indexContents: content.html[0].content
-    };
-    var postData = {};
-    angular.forEach(allFiles, function(file, index) {
-      if (file.content && file.name != 'index.html') {
-        postData['files[' + file.name + ']'] = file.content;
-      }
-    });
 
-    postData['files[index.html]'] = templateMerge(indexHtmlContent, indexProp);
-    postData['tags[]'] = "angularjs";
-    
-    postData.private = true;
-    postData.description = 'AngularJS Example Plunkr';
-
-    formPostData('http://plnkr.co/edit/?p=preview', postData);
-  };
-};
-
-docsApp.serviceFactory.openJsFiddle = function(templateMerge, formPostData, angularUrls) {
-
+docsApp.serviceFactory.openJsFiddle = function(templateMerge, getEmbeddedTemplate, formPostData, angularUrls) {
   var HTML = '<div ng-app=\"{{module}}\">\n{{html:2}}</div>',
       CSS = '</style> <!-- Ugly Hack due to jsFiddle issue: http://goo.gl/BUfGZ --> \n' +
         '{{head:0}}<style>\n​.ng-invalid { border: 1px solid red; }​\n{{css}}',
@@ -349,7 +297,7 @@ docsApp.controller.DocsController = function($scope, $location, $window, $cookie
     tutorial: 'Tutorial',
     cookbook: 'Examples'
   };
-  $scope.$watch(function docsPathWatch() {return $location.path(); }, function docsPathWatchAction(path) {
+  $scope.$watch(function() {return $location.path(); }, function(path) {
     // ignore non-doc links which are used in examples
     if (DOCS_PATH.test(path)) {
       var parts = path.split('/'),

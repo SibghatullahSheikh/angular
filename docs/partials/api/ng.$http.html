@@ -2,7 +2,7 @@
 <span class="hint">(service in module <code ng:non-bindable="">ng</code>
 )</span>
 </h1>
-<div><a href="http://github.com/angular/angular.js/edit/master/src/ng/http.js" class="improve-docs btn btn-primary">Improve this doc</a><h2 id="Description">Description</h2>
+<div><h2 id="Description">Description</h2>
 <div class="description"><p>The <code>$http</code> service is a core Angular service that facilitates communication with the remote
 HTTP servers via browser's <a href="https://developer.mozilla.org/en/xmlhttprequest">XMLHttpRequest</a> object or via <a href="http://en.wikipedia.org/wiki/JSONP">JSONP</a>.</p>
 
@@ -29,7 +29,8 @@ with two $http specific methods: <code>success</code> and <code>error</code>.</p
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
-      // or server returns response with an error status.
+      // or server returns response with status
+      // code outside of the &lt;200, 400) range
     });
 </pre>
 
@@ -37,11 +38,6 @@ with two $http specific methods: <code>success</code> and <code>error</code>.</p
 the <code>then</code> method to register callbacks, and these callbacks will receive a single argument –
 an object representing the response. See the api signature and type info below for more
 details.</p>
-
-<p>A response status code that falls in the [200, 300) range is considered a success status and
-will result in the success callback being called. Note that if the response is a redirect,
-XMLHttpRequest will transparently follow it, meaning that the error callback will not be
-called for such responses.</p>
 
 <h3>Shortcut methods</h3>
 
@@ -108,14 +104,10 @@ JSON format.</li>
 <li>if json response is detected, deserialize it using a JSON parser</li>
 </ul>
 
-<p>To globally augment or override the default transforms, modify the <code>$httpProvider.defaults.transformRequest</code> and
-<code>$httpProvider.defaults.transformResponse</code> properties of the <code>$httpProvider</code>. These properties are by default an
-array of transform functions, which allows you to <code>push</code> or <code>unshift</code> a new transformation function into the
-transformation chain. You can also decide to completely override any default transformations by assigning your
-transformation functions to these properties directly without the array wrapper.</p>
-
-<p>Similarly, to locally override the request/response transforms, augment the <code>transformRequest</code> and/or
-<code>transformResponse</code> properties of the config object passed into <code>$http</code>.</p>
+<p>To override these transformation locally, specify transform functions as <code>transformRequest</code>
+and/or <code>transformResponse</code> properties of the config object. To globally override the default
+transforms, override the <code>$httpProvider.defaults.transformRequest</code> and
+<code>$httpProvider.defaults.transformResponse</code> properties of the <code>$httpProvider</code>.</p>
 
 <h3>Caching</h3>
 
@@ -222,7 +214,7 @@ unique for each user and must be verifiable by the server (to prevent the JavaSc
 up its own tokens). We recommend that the token is a digest of your site's authentication
 cookie with <a href="http://en.wikipedia.org/wiki/Rainbow_table">salt for added security</a>.</p></div>
 <h2 id="Dependencies">Dependencies</h2>
-<ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$httpBackend">$httpBackend</a></code>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$httpBacked">$httpBacked</a></code>
 </li>
 <li><code ng:non-bindable=""><a href="api/ng.$browser">$browser</a></code>
 </li>
@@ -262,6 +254,7 @@ caching.</li>
 <li><strong>timeout</strong> – <code>{number}</code> – timeout in milliseconds.</li>
 <li><strong>withCredentials</strong> - <code>{boolean}</code> - whether to to set the <code>withCredentials</code> flag on the
 XHR object. See <a href="https://developer.mozilla.org/en/http_access_control#section_5">requests with credentials</a> for more information.</li>
+<li><strong>responseType</strong> - <code>{string}</code> - see <a href="https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#responseType">requestType</a>.</li>
 </ul></li>
 </ul>
 <h3 id="Returns">Returns</h3>

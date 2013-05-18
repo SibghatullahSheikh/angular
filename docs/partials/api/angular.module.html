@@ -2,14 +2,14 @@
 <span class="hint">(API in module <code ng:non-bindable="">ng</code>
 )</span>
 </h1>
-<div><a href="http://github.com/angular/angular.js/edit/master/src/loader.js" class="improve-docs btn btn-primary">Improve this doc</a><h2 id="Description">Description</h2>
+<div><h2 id="Description">Description</h2>
 <div class="description"><p>The <code>angular.module</code> is a global place for creating and registering Angular modules. All
 modules (angular core or 3rd party) that should be available to an application must be
 registered using this mechanism.</p>
 
 <h3>Module</h3>
 
-<p>A module is a collocation of services, directives, filters, and configuration information. Module
+<p>A module is a collocation of services, directives, filters, and configure information. Module
 is used to configure the <a href="api/AUTO.$injector"><code>$injector</code></a>.</p>
 
 <pre class="prettyprint linenums">
@@ -44,7 +44,7 @@ var injector = angular.injector(['ng', 'MyModule'])
 <p>If specified then new module is being created. If unspecified then the
 the module is being retrieved for further configuration.</p></li>
 <li><code ng:non-bindable="">configFn – {Function} – </code>
-<p>Optional configuration function for the module. Same as
+<p>Option configuration function for the module. Same as
 <a href="api/angular.Module#config"><code>Module#config()</code></a>.</p></li>
 </ul>
 <h3 id="Returns">Returns</h3>

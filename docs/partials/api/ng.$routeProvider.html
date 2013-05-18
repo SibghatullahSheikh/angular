@@ -2,7 +2,7 @@
 <span class="hint">(service in module <code ng:non-bindable="">ng</code>
 )</span>
 </h1>
-<div><a href="http://github.com/angular/angular.js/edit/master/src/ng/route.js" class="improve-docs btn btn-primary">Improve this doc</a><h2 id="Description">Description</h2>
+<div><h2 id="Description">Description</h2>
 <div class="description"><p>Used for configuring routes. See <a href="api/ng.$route"><code>$route</code></a> for an example.</p></div>
 <div class="member method"><h2 id="Methods">Methods</h2>
 <ul class="methods"><li><h3 id="otherwise">otherwise(params)</h3>
@@ -21,12 +21,8 @@ is matched.</p><h4 id="Parameters">Parameters</h4>
 <ul class="parameters"><li><code ng:non-bindable="">path – {string} – </code>
 <p>Route path (matched against <code>$location.path</code>). If <code>$location.path</code>
 contains redundant trailing slash or is missing one, the route will still match and the
-<code>$location.path</code> will be updated to add or drop the trailing slash to exactly match the
-route definition.</p>
-
-<p><code>path</code> can contain named groups starting with a colon (<code>:name</code>). All characters up to the
-next slash are matched and stored in <code>$routeParams</code> under the given <code>name</code> when the route
-matches.</p></li>
+<code>$location.path</code> will be updated to add or drop the trailing slash to exacly match the
+route definition.</p></li>
 <li><code ng:non-bindable="">route – {Object} – </code>
 <p>Mapping information to be assigned to <code>$route.current</code> on route
 match.</p>
@@ -35,7 +31,7 @@ match.</p>
 
 <ul>
 <li><code>controller</code> – <code>{(string|function()=}</code> – Controller fn that should be associated with newly
-created scope or the name of a <a href="api/angular.Module#controller"><code>registered controller</code></a>
+created scope or the name of a <a href="api/angular.Module#controller"><code>registered controller</code></a> 
 if passed as a string.</li>
 <li><code>template</code> – <code>{string=}</code> –  html template as a string that should be used by
 <a href="api/ng.directive:ngView"><code>ngView</code></a> or
@@ -46,7 +42,7 @@ this property takes precedence over <code>templateUrl</code>.</li>
 <li><p><code>resolve</code> - <code>{Object.&lt;string, function&gt;=}</code> - An optional map of dependencies which should
 be injected into the controller. If any of these dependencies are promises, they will be
 resolved and converted to a value before the controller is instantiated and the
-<code>$routeChangeSuccess</code> event is fired. The map object is:</p>
+<code>$afterRouteChange</code> event is fired. The map object is:</p>
 
 <ul><li><code>key</code> – <code>{string}</code>: a name of a dependency to be injected into the controller.</li>
 <li><code>factory</code> - <code>{string|function}</code>: If <code>string</code> then it is an alias for a service.
