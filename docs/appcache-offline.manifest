@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2013-01-23T20:01:19.974Z
+# 2013-02-20T20:55:57.493Z
 
 # cache all of these
 CACHE:
@@ -86,6 +86,7 @@ partials/api/angular.mock.inject.html
 partials/api/angular.mock.module.html
 partials/api/angular.mock.TzDate.html
 partials/api/angular.module.html
+partials/api/angular.noConflict.html
 partials/api/angular.noop.html
 partials/api/angular.toJson.html
 partials/api/angular.uppercase.html
