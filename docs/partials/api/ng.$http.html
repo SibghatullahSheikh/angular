@@ -29,8 +29,7 @@ with two $http specific methods: <code>success</code> and <code>error</code>.</p
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
-      // or server returns response with status
-      // code outside of the &lt;200, 400) range
+      // or server returns response with an error status.
     });
 </pre>
 
@@ -38,6 +37,11 @@ with two $http specific methods: <code>success</code> and <code>error</code>.</p
 the <code>then</code> method to register callbacks, and these callbacks will receive a single argument –
 an object representing the response. See the api signature and type info below for more
 details.</p>
+
+<p>A response status code that falls in the [200, 300) range is considered a success status and
+will result in the success callback being called. Note that if the response is a redirect,
+XMLHttpRequest will transparently follow it, meaning that the error callback will not be
+called for such responses.</p>
 
 <h3>Shortcut methods</h3>
 
@@ -213,7 +217,7 @@ unique for each user and must be verifiable by the server (to prevent the JavaSc
 up its own tokens). We recommend that the token is a digest of your site's authentication
 cookie with <a href="http://en.wikipedia.org/wiki/Rainbow_table">salt for added security</a>.</p></div>
 <h2 id="Dependencies">Dependencies</h2>
-<ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$httpBacked">$httpBacked</a></code>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$httpBackend">$httpBackend</a></code>
 </li>
 <li><code ng:non-bindable=""><a href="api/ng.$browser">$browser</a></code>
 </li>
@@ -368,10 +372,10 @@ requests. This is primarily meant to be used for debugging purposes.</p></div>
 </div>
 <h2 id="Example">Example</h2>
 <div class="example"><h4>Source</h4>
-<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-208 http-hello.html" source-edit-css="" source-edit-js="script.js-209" source-edit-unit="" source-edit-scenario="scenario.js-210"></div>
+<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-210 http-hello.html" source-edit-css="" source-edit-js="script.js-211" source-edit-unit="" source-edit-scenario="scenario.js-212"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-208" ng-html-wrap=" angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-208">
+<pre class="prettyprint linenums" ng-set-text="index.html-210" ng-html-wrap=" angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-210">
   <div ng-controller="FetchCtrl">
     <select ng-model="method">
       <option>GET</option>
@@ -394,8 +398,8 @@ requests. This is primarily meant to be used for debugging purposes.</p></div>
 </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-209"></pre>
-<script type="text/ng-template" id="script.js-209">
+<pre class="prettyprint linenums" ng-set-text="script.js-211"></pre>
+<script type="text/ng-template" id="script.js-211">
   function FetchCtrl($scope, $http, $templateCache) {
     $scope.method = 'GET';
     $scope.url = 'http-hello.html';
@@ -423,8 +427,8 @@ requests. This is primarily meant to be used for debugging purposes.</p></div>
 </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-210"></pre>
-<script type="text/ng-template" id="scenario.js-210">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-212"></pre>
+<script type="text/ng-template" id="scenario.js-212">
   it('should make an xhr GET request', function() {
     element(':button:contains("Sample GET")').click();
     element(':button:contains("fetch")').click();
@@ -449,5 +453,5 @@ requests. This is primarily meant to be used for debugging purposes.</p></div>
 </script>
 </div>
 </div><h4>Demo</h4>
-<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-208" ng-eval-javascript="script.js-209"></div></div>
+<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-210" ng-eval-javascript="script.js-211"></div></div>
 </div>

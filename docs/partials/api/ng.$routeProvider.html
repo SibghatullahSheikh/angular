@@ -21,8 +21,12 @@ is matched.</p><h4 id="Parameters">Parameters</h4>
 <ul class="parameters"><li><code ng:non-bindable="">path – {string} – </code>
 <p>Route path (matched against <code>$location.path</code>). If <code>$location.path</code>
 contains redundant trailing slash or is missing one, the route will still match and the
-<code>$location.path</code> will be updated to add or drop the trailing slash to exacly match the
-route definition.</p></li>
+<code>$location.path</code> will be updated to add or drop the trailing slash to exactly match the
+route definition.</p>
+
+<p><code>path</code> can contain named groups starting with a colon (<code>:name</code>). All characters up to the
+next slash are matched and stored in <code>$routeParams</code> under the given <code>name</code> when the route
+matches.</p></li>
 <li><code ng:non-bindable="">route – {Object} – </code>
 <p>Mapping information to be assigned to <code>$route.current</code> on route
 match.</p>
@@ -33,12 +37,22 @@ match.</p>
 <li><code>controller</code> – <code>{(string|function()=}</code> – Controller fn that should be associated with newly
 created scope or the name of a <a href="api/angular.Module#controller"><code>registered controller</code></a>
 if passed as a string.</li>
-<li><code>template</code> – <code>{string=}</code> –  html template as a string that should be used by
-<a href="api/ng.directive:ngView"><code>ngView</code></a> or
+<li><p><code>template</code> – <code>{string=|function()=}</code> – html template as a string or function that returns
+an html template as a string which should be used by <a href="api/ng.directive:ngView"><code>ngView</code></a> or
 <a href="api/ng.directive:ngInclude"><code>ngInclude</code></a> directives.
-this property takes precedence over <code>templateUrl</code>.</li>
-<li><code>templateUrl</code> – <code>{string=}</code> – path to an html template that should be used by
-<a href="api/ng.directive:ngView"><code>ngView</code></a>.</li>
+This property takes precedence over <code>templateUrl</code>.</p>
+
+<p>If <code>template</code> is a function, it will be called with the following parameters:</p>
+
+<ul><li><code>{Array.&lt;Object&gt;}</code> - route parameters extracted from the current
+<code>$location.path()</code> by applying the current route</li></ul></li>
+<li><p><code>templateUrl</code> – <code>{string=|function()=}</code> – path or function that returns a path to an html
+template that should be used by <a href="api/ng.directive:ngView"><code>ngView</code></a>.</p>
+
+<p>If <code>templateUrl</code> is a function, it will be called with the following parameters:</p>
+
+<ul><li><code>{Array.&lt;Object&gt;}</code> - route parameters extracted from the current
+<code>$location.path()</code> by applying the current route</li></ul></li>
 <li><p><code>resolve</code> - <code>{Object.&lt;string, function&gt;=}</code> - An optional map of dependencies which should
 be injected into the controller. If any of these dependencies are promises, they will be
 resolved and converted to a value before the controller is instantiated and the

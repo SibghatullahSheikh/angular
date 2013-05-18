@@ -17,10 +17,13 @@ the need to interact with the low level <a href="api/ng.$http"><code>$http</code
 <h3 id="Parameters">Parameters</h3>
 <ul class="parameters"><li><code ng:non-bindable="">url – {string} – </code>
 <p>A parameterized URL template with parameters prefixed by <code>:</code> as in
-<code>/user/:username</code>.</p></li>
+<code>/user/:username</code>. If you are using a URL with a port number (e.g. 
+<code>http://example.com:8080/api</code>), you'll need to escape the colon character before the port
+number, like this: <code>$resource('http://example.com\\:8080/api')</code>.</p></li>
 <li><code ng:non-bindable="">paramDefaults<i>(optional)</i> – {Object=} – </code>
 <p>Default values for <code>url</code> parameters. These can be overridden in
-<code>actions</code> methods.</p>
+<code>actions</code> methods. If any of the parameter value is a function, it will be executed every time
+when a param value needs to be obtained for a request (unless the param was overriden).</p>
 
 <p>Each key value in the parameter object is first bound to url template if present and then any
 excess keys are appended to the url search query after the <code>?</code>.</p>
@@ -32,24 +35,39 @@ URL <code>/path/greet?salutation=Hello</code>.</p>
 the data object (useful for non-GET operations).</p></li>
 <li><code ng:non-bindable="">actions<i>(optional)</i> – {Object.&lt;Object&gt;=} – </code>
 <p>Hash with declaration of custom action that should extend the
-default set of resource actions. The declaration should be created in the following format:</p>
+default set of resource actions. The declaration should be created in the format of <a href="api/ng.$http#Parameters"><code>$http.config</code></a>:</p>
 
-<pre><code>{action1: {method:?, params:?, isArray:?, headers:?},
- action2: {method:?, params:?, isArray:?, headers:?},
+<pre><code>{action1: {method:?, params:?, isArray:?, headers:?, ...},
+ action2: {method:?, params:?, isArray:?, headers:?, ...},
  ...}
 </code></pre>
 
 <p>Where:</p>
 
 <ul>
-<li><code>action</code> – {string} – The name of action. This name becomes the name of the method on your
+<li><strong><code>action</code></strong> – {string} – The name of action. This name becomes the name of the method on your
 resource object.</li>
-<li><code>method</code> – {string} – HTTP request method. Valid methods are: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>,
-and <code>JSONP</code></li>
-<li><code>params</code> – {object=} – Optional set of pre-bound parameters for this action.</li>
-<li>isArray – {boolean=} – If true then the returned object for this action is an array, see
+<li><strong><code>method</code></strong> – {string} – HTTP request method. Valid methods are: <code>GET</code>, <code>POST</code>, <code>PUT</code>, <code>DELETE</code>,
+and <code>JSONP</code>.</li>
+<li><strong><code>params</code></strong> – {Object=} – Optional set of pre-bound parameters for this action. If any of the
+parameter value is a function, it will be executed every time when a param value needs to be
+obtained for a request (unless the param was overriden).</li>
+<li><strong><code>isArray</code></strong> – {boolean=} – If true then the returned object for this action is an array, see
 <code>returns</code> section.</li>
-<li><code>headers</code> – {object=} – Optional HTTP headers to send</li>
+<li><strong><code>transformRequest</code></strong> – <code>{function(data, headersGetter)|Array.&lt;function(data, headersGetter)&gt;}</code> –
+transform function or an array of such functions. The transform function takes the http
+request body and headers and returns its transformed (typically serialized) version.</li>
+<li><strong><code>transformResponse</code></strong> – <code>{function(data, headersGetter)|Array.&lt;function(data, headersGetter)&gt;}</code> –
+transform function or an array of such functions. The transform function takes the http
+response body and headers and returns its transformed (typically deserialized) version.</li>
+<li><strong><code>cache</code></strong> – <code>{boolean|Cache}</code> – If true, a default $http cache will be used to cache the
+GET request, otherwise if a cache instance built with
+<a href="api/ng.$cacheFactory"><code>$cacheFactory</code></a>, this cache will be used for
+caching.</li>
+<li><strong><code>timeout</code></strong> – <code>{number}</code> – timeout in milliseconds.</li>
+<li><strong><code>withCredentials</code></strong> - <code>{boolean}</code> - whether to to set the <code>withCredentials</code> flag on the
+XHR object. See <a href="https://developer.mozilla.org/en/http_access_control#section_5">requests with credentials</a> for more information.</li>
+<li><strong><code>responseType</code></strong> - <code>{string}</code> - see <a href="https://developer.mozilla.org/en-US/docs/DOM/XMLHttpRequest#responseType">requestType</a>.</li>
 </ul></li>
 </ul>
 <h3 id="Returns">Returns</h3>
@@ -168,10 +186,10 @@ could rewrite the above example and get access to http headers as:
 
 <p>Let's look at what a buzz client created with the <code>$resource</code> service looks like:
     <h4>Source</h4>
-<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-219" source-edit-css="" source-edit-js="script.js-218" source-edit-unit="" source-edit-scenario="scenario.js-220"></div>
+<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-221" source-edit-css="" source-edit-js="script.js-220" source-edit-unit="" source-edit-scenario="scenario.js-222"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-219" ng-html-wrap=" angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-219">
+<pre class="prettyprint linenums" ng-set-text="index.html-221" ng-html-wrap=" angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-221">
        
 
        <div ng-controller="BuzzController">
@@ -194,8 +212,8 @@ could rewrite the above example and get access to http headers as:
       </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-218"></pre>
-<script type="text/ng-template" id="script.js-218">
+<pre class="prettyprint linenums" ng-set-text="script.js-220"></pre>
+<script type="text/ng-template" id="script.js-220">
          function BuzzController($resource) {
            this.userId = 'googlebuzz';
            this.Activity = $resource(
@@ -217,10 +235,10 @@ could rewrite the above example and get access to http headers as:
        </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-220"></pre>
-<script type="text/ng-template" id="scenario.js-220">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-222"></pre>
+<script type="text/ng-template" id="scenario.js-222">
       </script>
 </div>
 </div><h4>Demo</h4>
-<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-219" ng-eval-javascript="script.js-218"></div></div>
+<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-221" ng-eval-javascript="script.js-220"></div></div>
 </div>
