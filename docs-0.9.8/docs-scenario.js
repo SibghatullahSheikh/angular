@@ -1,3 +1,70 @@
+describe('angular.element', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.element');
+  });
+  // docs/angular.element.ngdoc:1
+});
+describe('angular.directive', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.directive');
+  });
+  // docs/angular.directive.ngdoc:1
+});
+describe('angular.filter', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.filter');
+  });
+  // docs/angular.filter.ngdoc:1
+});
+describe('angular.formatter', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.formatter');
+  });
+  // docs/angular.formatter.ngdoc:1
+it('should store reverse', function(){
+ expect(element('.doc-example input:first').val()).toEqual('angular');
+ expect(element('.doc-example input:last').val()).toEqual('RALUGNA');
+ 
+ this.addFutureAction('change to XYZ', function($window, $document, done){
+   $document.elements('.doc-example input:last').val('XYZ').trigger('change');
+   done();
+ });
+ expect(element('.doc-example input:first').val()).toEqual('zyx');
+});
+});
+describe('angular', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular');
+  });
+  // docs/angular.ngdoc:1
+});
+describe('angular.validator', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.validator');
+  });
+  // docs/angular.validator.ngdoc:1
+it('should validate correct UPS tracking number', function() {
+  expect(element('input[name=trackNo]').attr('class')).
+     not().toMatch(/ng-validation-error/);
+});
+it('should not validate in correct UPS tracking number', function() {
+  input('trackNo').enter('foo');
+  expect(element('input[name=trackNo]').attr('class')).
+     toMatch(/ng-validation-error/);
+});
+});
+describe('angular.service', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service');
+  });
+  // docs/angular.service.ngdoc:1
+});
+describe('angular.widget', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.widget');
+  });
+  // docs/angular.widget.ngdoc:1
+});
 describe('angular.lowercase', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.lowercase');
@@ -14,109 +81,115 @@ describe('angular.foreach', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.foreach');
   });
-  // src/Angular.js:114
+  // src/Angular.js:115
 });
 describe('angular.extend', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.extend');
   });
-  // src/Angular.js:185
+  // src/Angular.js:186
 });
 describe('angular.noop', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.noop');
   });
-  // src/Angular.js:215
+  // src/Angular.js:216
 });
 describe('angular.identity', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.identity');
   });
-  // src/Angular.js:234
+  // src/Angular.js:235
 });
 describe('angular.isUndefined', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.isUndefined');
   });
-  // src/Angular.js:288
+  // src/Angular.js:289
 });
 describe('angular.isDefined', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.isDefined');
   });
-  // src/Angular.js:303
+  // src/Angular.js:304
 });
 describe('angular.isObject', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.isObject');
   });
-  // src/Angular.js:318
+  // src/Angular.js:319
 });
 describe('angular.isString', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.isString');
   });
-  // src/Angular.js:334
+  // src/Angular.js:335
 });
 describe('angular.isNumber', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.isNumber');
   });
-  // src/Angular.js:349
+  // src/Angular.js:350
 });
 describe('angular.isDate', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.isDate');
   });
-  // src/Angular.js:364
+  // src/Angular.js:365
 });
 describe('angular.isArray', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.isArray');
   });
-  // src/Angular.js:379
+  // src/Angular.js:380
 });
 describe('angular.isFunction', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.isFunction');
   });
-  // src/Angular.js:394
+  // src/Angular.js:395
 });
 describe('angular.Object.size', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.Object.size');
   });
-  // src/Angular.js:464
+  // src/Angular.js:465
 });
 describe('angular.Object.copy', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.Object.copy');
   });
-  // src/Angular.js:521
+  // src/Angular.js:522
 });
 describe('angular.Object.equals', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.Object.equals');
   });
-  // src/Angular.js:590
+  // src/Angular.js:591
 });
 describe('angular.bind', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.bind');
   });
-  // src/Angular.js:689
+  // src/Angular.js:690
 });
 describe('angular.compile', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.compile');
   });
-  // src/Angular.js:743
+  // src/Angular.js:744
 });
 describe('angular.directive.ng:autobind', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.directive.ng:autobind');
   });
-  // src/Angular.js:794
+  // src/Angular.js:795
+});
+describe('angular.service.$browser', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$browser');
+  });
+  // src/AngularPublic.js:2
 });
 describe('angular.Object', function(){
   beforeEach(function(){
@@ -490,6 +563,73 @@ describe('angular.directive.ng:style', function(){
      expect(element('.doc-example-live span').css('color')).toBe('rgb(0, 0, 0)');
    });
 });
+describe('angular.formatter.json', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.formatter.json');
+  });
+  // src/formatters.js:10
+it('should format json', function(){
+  expect(binding('data')).toEqual('data={\n  \"name\":\"misko\",\n  \"project\":\"angular\"}');
+  input('data').enter('{}');
+  expect(binding('data')).toEqual('data={\n  }');
+});
+});
+describe('angular.formatter.boolean', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.formatter.boolean');
+  });
+  // src/formatters.js:35
+it('should format boolean', function(){
+  expect(binding('value')).toEqual('value=false');
+  input('value').enter('truthy');
+  expect(binding('value')).toEqual('value=true');
+});
+});
+describe('angular.formatter.number', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.formatter.number');
+  });
+  // src/formatters.js:60
+it('should format numbers', function(){
+  expect(binding('value')).toEqual('value=1234');
+  input('value').enter('5678');
+  expect(binding('value')).toEqual('value=5678');
+});
+});
+describe('angular.formatter.list', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.formatter.list');
+  });
+  // src/formatters.js:90
+it('should format lists', function(){
+  expect(binding('value')).toEqual('value=["chair","table"]');
+  this.addFutureAction('change to XYZ', function($window, $document, done){
+    $document.elements('.doc-example :input:last').val(',,a,b,').trigger('change');
+    done();
+  });
+  expect(binding('value')).toEqual('value=["a","b"]');
+});
+});
+describe('angular.formatter.trim', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.formatter.trim');
+  });
+  // src/formatters.js:128
+it('should format trim', function(){
+  expect(binding('value')).toEqual('value="book"');
+  this.addFutureAction('change to XYZ', function($window, $document, done){
+    $document.elements('.doc-example :input:last').val('  text  ').trigger('change');
+    done();
+  });
+  expect(binding('value')).toEqual('value="text"');
+});
+});
+describe('angular.injector', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.injector');
+  });
+  // src/Injector.js:1
+});
 describe('angular.filter.currency', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.filter.currency');
@@ -615,146 +755,6 @@ describe('angular.filter.linky', function(){
        expect(using('#escaped-html').binding('snippet')).toBe('new http://link.');
      });
 });
-describe('angular.formatter.json', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.formatter.json');
-  });
-  // src/formatters.js:10
-it('should format json', function(){
-  expect(binding('data')).toEqual('data={\n  \"name\":\"misko\",\n  \"project\":\"angular\"}');
-  input('data').enter('{}');
-  expect(binding('data')).toEqual('data={\n  }');
-});
-});
-describe('angular.formatter.boolean', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.formatter.boolean');
-  });
-  // src/formatters.js:35
-it('should format boolean', function(){
-  expect(binding('value')).toEqual('value=false');
-  input('value').enter('truthy');
-  expect(binding('value')).toEqual('value=true');
-});
-});
-describe('angular.formatter.number', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.formatter.number');
-  });
-  // src/formatters.js:60
-it('should format numbers', function(){
-  expect(binding('value')).toEqual('value=1234');
-  input('value').enter('5678');
-  expect(binding('value')).toEqual('value=5678');
-});
-});
-describe('angular.formatter.list', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.formatter.list');
-  });
-  // src/formatters.js:90
-it('should format lists', function(){
-  expect(binding('value')).toEqual('value=["chair","table"]');
-  this.addFutureAction('change to XYZ', function($window, $document, done){
-    $document.elements('.doc-example :input:last').val(',,a,b,').trigger('change');
-    done();
-  });
-  expect(binding('value')).toEqual('value=["a","b"]');
-});
-});
-describe('angular.formatter.trim', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.formatter.trim');
-  });
-  // src/formatters.js:128
-it('should format trim', function(){
-  expect(binding('value')).toEqual('value="book"');
-  this.addFutureAction('change to XYZ', function($window, $document, done){
-    $document.elements('.doc-example :input:last').val('  text  ').trigger('change');
-    done();
-  });
-  expect(binding('value')).toEqual('value="text"');
-});
-});
-describe('angular.injector', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.injector');
-  });
-  // src/Injector.js:1
-});
-describe('angular.service.$browser', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$browser');
-  });
-  // src/AngularPublic.js:2
-});
-describe('angular.directive', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.directive');
-  });
-  // docs/angular.directive.ngdoc:1
-});
-describe('angular.element', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.element');
-  });
-  // docs/angular.element.ngdoc:1
-});
-describe('angular.filter', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.filter');
-  });
-  // docs/angular.filter.ngdoc:1
-});
-describe('angular', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular');
-  });
-  // docs/angular.ngdoc:1
-});
-describe('angular.service', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service');
-  });
-  // docs/angular.service.ngdoc:1
-});
-describe('angular.formatter', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.formatter');
-  });
-  // docs/angular.formatter.ngdoc:1
-it('should store reverse', function(){
- expect(element('.doc-example input:first').val()).toEqual('angular');
- expect(element('.doc-example input:last').val()).toEqual('RALUGNA');
- 
- this.addFutureAction('change to XYZ', function($window, $document, done){
-   $document.elements('.doc-example input:last').val('XYZ').trigger('change');
-   done();
- });
- expect(element('.doc-example input:first').val()).toEqual('zyx');
-});
-});
-describe('angular.validator', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.validator');
-  });
-  // docs/angular.validator.ngdoc:1
-it('should validate correct UPS tracking number', function() {
-  expect(element('input[name=trackNo]').attr('class')).
-     not().toMatch(/ng-validation-error/);
-});
-it('should not validate in correct UPS tracking number', function() {
-  input('trackNo').enter('foo');
-  expect(element('input[name=trackNo]').attr('class')).
-     toMatch(/ng-validation-error/);
-});
-});
-describe('angular.widget', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.widget');
-  });
-  // docs/angular.widget.ngdoc:1
-});
 describe('angular.toJson', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.toJson');
@@ -846,102 +846,6 @@ describe('angular.scope.$new', function(){
     browser().navigateTo('index.html#!angular.scope.$new');
   });
   // src/Scope.js:590
-});
-describe('angular.service.$window', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$window');
-  });
-  // src/services.js:11
-});
-describe('angular.service.$document', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$document');
-  });
-  // src/services.js:31
-});
-describe('angular.service.$location', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$location');
-  });
-  // src/services.js:44
-});
-describe('angular.service.$log', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$log');
-  });
-  // src/services.js:301
-});
-describe('angular.service.$exceptionHandler', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$exceptionHandler');
-  });
-  // src/services.js:387
-});
-describe('angular.service.$hover', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$hover');
-  });
-  // src/services.js:411
-});
-describe('angular.service.$invalidWidgets', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$invalidWidgets');
-  });
-  // src/services.js:468
-});
-describe('angular.service.$route', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$route');
-  });
-  // src/services.js:561
-});
-describe('angular.service.$xhr', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$xhr');
-  });
-  // src/services.js:683
-});
-describe('angular.service.$xhr.error', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$xhr.error');
-  });
-  // src/services.js:726
-});
-describe('angular.service.$xhr.bulk', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$xhr.bulk');
-  });
-  // src/services.js:742
-});
-describe('angular.service.$defer', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$defer');
-  });
-  // src/services.js:805
-});
-describe('angular.service.$xhr.cache', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$xhr.cache');
-  });
-  // src/services.js:838
-});
-describe('angular.service.$resource', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$resource');
-  });
-  // src/services.js:893
-});
-describe('angular.service.$cookies', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$cookies');
-  });
-  // src/services.js:1044
-});
-describe('angular.service.$cookieStore', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$cookieStore');
-  });
-  // src/services.js:1129
 });
 describe('angular.validator.regexp', function(){
   beforeEach(function(){
@@ -1125,7 +1029,7 @@ describe('angular.widget.@ng:validate', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.widget.@ng:validate');
   });
-  // src/widgets.js:169
+  // src/widgets.js:172
    it('should check ng:validate', function(){
      expect(element('.doc-example-live :input:last').attr('className')).
        toMatch(/ng-validation-error/);
@@ -1138,7 +1042,7 @@ describe('angular.widget.@ng:required', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.widget.@ng:required');
   });
-  // src/widgets.js:206
+  // src/widgets.js:209
    it('should check ng:required', function(){
      expect(element('.doc-example-live :input').attr('className')).toMatch(/ng-validation-error/);
      input('value').enter('123');
@@ -1149,7 +1053,7 @@ describe('angular.widget.@ng:format', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.widget.@ng:format');
   });
-  // src/widgets.js:232
+  // src/widgets.js:235
    it('should check ng:format', function(){
      expect(binding('list')).toBe('list=["table","chairs","plate"]');
      input('list').enter(',,, a ,,,');
@@ -1160,7 +1064,7 @@ describe('angular.directive.ng:change', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.directive.ng:change');
   });
-  // src/widgets.js:420
+  // src/widgets.js:423
    it('should check ng:change', function(){
      expect(binding('textCount')).toBe('0');
      expect(binding('checkboxCount')).toBe('0');
@@ -1179,7 +1083,7 @@ describe('angular.widget.ng:include', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.widget.ng:include');
   });
-  // src/widgets.js:537
+  // src/widgets.js:545
 it('should load date filter', function(){
   expect(element('.doc-example ng\\:include').text()).toMatch(/angular\.filter\.date/);
 });
@@ -1196,7 +1100,7 @@ describe('angular.widget.ng:switch', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.widget.ng:switch');
   });
-  // src/widgets.js:623
+  // src/widgets.js:631
 it('should start in settings', function(){
   expect(element('.doc-example ng\\:switch').text()).toEqual('Settings Div');
 });
@@ -1213,7 +1117,7 @@ describe('angular.widget.@ng:repeat', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.widget.@ng:repeat');
   });
-  // src/widgets.js:762
+  // src/widgets.js:770
    it('should check ng:repeat', function(){
      var r = using('.doc-example-live').repeater('ul li');
      expect(r.count()).toBe(2);
@@ -1225,10 +1129,106 @@ describe('angular.widget.@ng:non-bindable', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.widget.@ng:non-bindable');
   });
-  // src/widgets.js:889
+  // src/widgets.js:897
    it('should check ng:non-bindable', function(){
      expect(using('.doc-example-live').binding('1 + 2')).toBe('3');
      expect(using('.doc-example-live').element('div:last').text()).
        toMatch(/1 \+ 2/);
    });
+});
+describe('angular.service.$window', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$window');
+  });
+  // src/services.js:11
+});
+describe('angular.service.$document', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$document');
+  });
+  // src/services.js:31
+});
+describe('angular.service.$location', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$location');
+  });
+  // src/services.js:44
+});
+describe('angular.service.$log', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$log');
+  });
+  // src/services.js:301
+});
+describe('angular.service.$exceptionHandler', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$exceptionHandler');
+  });
+  // src/services.js:387
+});
+describe('angular.service.$hover', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$hover');
+  });
+  // src/services.js:411
+});
+describe('angular.service.$invalidWidgets', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$invalidWidgets');
+  });
+  // src/services.js:468
+});
+describe('angular.service.$route', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$route');
+  });
+  // src/services.js:561
+});
+describe('angular.service.$xhr', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$xhr');
+  });
+  // src/services.js:683
+});
+describe('angular.service.$xhr.error', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$xhr.error');
+  });
+  // src/services.js:726
+});
+describe('angular.service.$xhr.bulk', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$xhr.bulk');
+  });
+  // src/services.js:742
+});
+describe('angular.service.$defer', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$defer');
+  });
+  // src/services.js:805
+});
+describe('angular.service.$xhr.cache', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$xhr.cache');
+  });
+  // src/services.js:838
+});
+describe('angular.service.$resource', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$resource');
+  });
+  // src/services.js:893
+});
+describe('angular.service.$cookies', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$cookies');
+  });
+  // src/services.js:1044
+});
+describe('angular.service.$cookieStore', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$cookieStore');
+  });
+  // src/services.js:1129
 });

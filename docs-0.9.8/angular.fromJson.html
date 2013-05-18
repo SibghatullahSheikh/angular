@@ -8,7 +8,7 @@
 <p>Deserializes a string in the JSON format.</p>
 <h2>Usage</h2>
 <tt ng:non-bindable>
-angular.fromJson(json);
+angular.fromJson(json, useNative);
 </tt>
 <h3>Parameters</h3>
 <ul>
@@ -16,6 +16,10 @@ angular.fromJson(json);
       <tt>&#123;string&#125;</tt>
       <tt></tt>
       – JSON string to deserialize.</li>
+    <li><tt>useNative</tt> –
+      <tt>&#123;boolean&#125;</tt>
+      <tt>[false]</tt>
+      – Use native JSON parser if available</li>
   </ul>
 <h3>Returns</h3>
 <tt>&#123;Object|Array|Date|string|number&#125;</tt> Deserialized thingy.
