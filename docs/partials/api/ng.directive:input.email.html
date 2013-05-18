@@ -10,6 +10,7 @@ address.</p></div>
        ng-model="{string}"
        [name="{string}"]
        [required]
+       [ng-required="{string}"]
        [ng-minlength="{number}"]
        [ng-maxlength="{number}"]
        [ng-pattern="{string}"]&gt;</pre>
@@ -20,6 +21,10 @@ address.</p></div>
 <p>Property name of the form under which the control is published.</p></li>
 <li><code ng:non-bindable="">required<i>(optional)</i> – {string=} – </code>
 <p>Sets <code>required</code> validation error key if the value is not entered.</p></li>
+<li><code ng:non-bindable="">ngRequired<i>(optional)</i> – {string=} – </code>
+<p>Adds <code>required</code> attribute and <code>required</code> validation constraint to
+the element when the ngRequired expression evaluates to true. Use <code>ngRequired</code> instead of
+<code>required</code> when you want to data-bind to the <code>required</code> attribute.</p></li>
 <li><code ng:non-bindable="">ngMinlength<i>(optional)</i> – {number=} – </code>
 <p>Sets <code>minlength</code> validation error key if the value is shorter than
 minlength.</p></li>
@@ -34,10 +39,10 @@ patterns defined as scope expressions.</p></li>
 </div>
 <h2 id="Example">Example</h2>
 <div class="example"><h4>Source</h4>
-<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-111" source-edit-css="" source-edit-js="script.js-110" source-edit-unit="" source-edit-scenario="scenario.js-112"></div>
+<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-117" source-edit-css="" source-edit-js="script.js-116" source-edit-unit="" source-edit-scenario="scenario.js-118"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-111" ng-html-wrap=" angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-111">
+<pre class="prettyprint linenums" ng-set-text="index.html-117" ng-html-wrap=" angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-117">
  
    <form name="myForm" ng-controller="Ctrl">
      Email: <input type="email" name="input" ng-model="text" required>
@@ -55,16 +60,16 @@ patterns defined as scope expressions.</p></li>
 </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-110"></pre>
-<script type="text/ng-template" id="script.js-110">
+<pre class="prettyprint linenums" ng-set-text="script.js-116"></pre>
+<script type="text/ng-template" id="script.js-116">
    function Ctrl($scope) {
      $scope.text = 'me@example.com';
    }
  </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-112"></pre>
-<script type="text/ng-template" id="scenario.js-112">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-118"></pre>
+<script type="text/ng-template" id="scenario.js-118">
   it('should initialize to model', function() {
     expect(binding('text')).toEqual('me@example.com');
     expect(binding('myForm.input.$valid')).toEqual('true');
@@ -83,5 +88,5 @@ patterns defined as scope expressions.</p></li>
 </script>
 </div>
 </div><h4>Demo</h4>
-<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-111" ng-eval-javascript="script.js-110"></div></div>
+<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-117" ng-eval-javascript="script.js-116"></div></div>
 </div>

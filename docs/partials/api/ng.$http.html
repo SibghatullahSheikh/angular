@@ -69,8 +69,7 @@ object, which currently contains this default configuration:</p>
 
 <ul>
 <li><code>$httpProvider.defaults.headers.common</code> (headers that are common for all requests):
-<ul><li><code>Accept: application/json, text/plain, * / *</code></li>
-<li><code>X-Requested-With: XMLHttpRequest</code></li></ul></li>
+<ul><li><code>Accept: application/json, text/plain, * / *</code></li></ul></li>
 <li><code>$httpProvider.defaults.headers.post</code>: (header defaults for HTTP POST requests)
 <ul><li><code>Content-Type: application/json</code></li></ul></li>
 <li><code>$httpProvider.defaults.headers.put</code> (header defaults for HTTP PUT requests)
@@ -204,7 +203,7 @@ an unauthorized site can gain your user's private data. Angular provides followi
 to counter XSRF. When performing XHR requests, the $http service reads a token from a cookie
 called <code>XSRF-TOKEN</code> and sets it as the HTTP header <code>X-XSRF-TOKEN</code>. Since only JavaScript that
 runs on your domain could read the cookie, your server can be assured that the XHR came from
-JavaScript running on your domain.</p>
+JavaScript running on your domain. The header will not be set for cross-domain requests.</p>
 
 <p>To take advantage of this, your server needs to set a token in a JavaScript readable session
 cookie called <code>XSRF-TOKEN</code> on first HTTP GET request. On subsequent non-GET requests the
@@ -357,7 +356,7 @@ Should contain <code>JSON_CALLBACK</code> string.</p></li>
 <div class="member property"><h2 id="Properties">Properties</h2>
 <ul class="properties"><li><h3 id="defaults">defaults</h3>
 <div class="defaults"><p>Runtime equivalent of the <code>$httpProvider.defaults</code> property. Allows configuration of
-default headers as well as request and response transformations.</p>
+default headers, withCredentials as well as request and response transformations.</p>
 
 <p>See "Setting HTTP Headers" and "Transforming Requests and Responses" sections above.</p></div>
 </li>

@@ -22,12 +22,12 @@
           baseUrl = location.href.replace(rUrl, indexFile),
           jQuery = /index-jq[^\.]*\.html$/.test(baseUrl),
           debug = /index[^\.]*-debug\.html$/.test(baseUrl),
-          gae = (baseUrl.split('/').length == 4),
+          production = location.hostname === 'docs.angularjs.org',
           headEl = document.getElementsByTagName('head')[0],
           sync = true,
           angularVersion = {
-            current: '1.1.0', // rewrite during build
-            stable: '1.0.1'
+            current: '1.1.1', // rewrite during build
+            stable: '1.0.2'
           };
 
       addTag('base', {href: baseUrl});
@@ -45,7 +45,7 @@
       addTag('script', {src: 'docs-keywords.js'}, sync);
 
       function path(name) {
-        if (gae) {
+        if (production) {
           if (name.match(/^angular(-\w+)?\.js/) && !name.match(/bootstrap/)) {
             name =  '//ajax.googleapis.com/ajax/libs/angularjs/' +
                 angularVersion.stable +
@@ -55,7 +55,7 @@
             name =  'http://code.angularjs.org/' +
                 angularVersion.stable +
                 '/' +
-                name.replace(/\.js$/, '-' + angularVersion.stable +'.min.js');
+                name.replace(/\.js$/, '.min.js');
           }
           return name;
         }
