@@ -165,16 +165,16 @@ describe("angular+jqlite", function() {
   
 });
 
-  describe("guide/concepts", function() {
+  describe("guide/dev_guide.e2e-testing", function() {
     beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/guide/concepts");
+      browser().navigateTo("index-nocache.html#!/guide/dev_guide.e2e-testing");
     });
   
 });
 
-  describe("guide/dev_guide.e2e-testing", function() {
+  describe("guide/concepts", function() {
     beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/guide/dev_guide.e2e-testing");
+      browser().navigateTo("index-nocache.html#!/guide/concepts");
     });
   
 });
@@ -322,6 +322,28 @@ describe("angular+jqlite", function() {
   
 });
 
+  describe("guide/directive", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-nocache.html#!/guide/directive");
+    });
+  
+      it('should show off bindings', function() {
+        expect(element('div[ng-controller="Ctrl1"] span[ng-bind]').text()).toBe('angular');
+      });
+
+      it('should bind and open / close', function() {
+        input('title').enter('TITLE');
+        input('text').enter('TEXT');
+        expect(element('.title').text()).toEqual('Details: TITLE...');
+        expect(binding('text')).toEqual('TEXT');
+    
+        expect(element('.zippy').prop('className')).toMatch(/closed/);
+        element('.zippy > .title').click();
+        expect(element('.zippy').prop('className')).toMatch(/opened/);
+      });
+
+});
+
   describe("guide/expression", function() {
     beforeEach(function() {
       browser().navigateTo("index-nocache.html#!/guide/expression");
@@ -351,28 +373,6 @@ describe("angular+jqlite", function() {
         done(null, alertText);
       })).toBe('Hello World');
     });
-
-});
-
-  describe("guide/directive", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/guide/directive");
-    });
-  
-      it('should show off bindings', function() {
-        expect(element('div[ng-controller="Ctrl1"] span[ng-bind]').text()).toBe('angular');
-      });
-
-      it('should bind and open / close', function() {
-        input('title').enter('TITLE');
-        input('text').enter('TEXT');
-        expect(element('.title').text()).toEqual('Details: TITLE...');
-        expect(binding('text')).toEqual('TEXT');
-    
-        expect(element('.zippy').prop('className')).toMatch(/closed/);
-        element('.zippy > .title').click();
-        expect(element('.zippy').prop('className')).toMatch(/opened/);
-      });
 
 });
 
@@ -516,16 +516,16 @@ describe("angular+jqlite", function() {
   
 });
 
-  describe("tutorial/step_05", function() {
+  describe("tutorial/step_06", function() {
     beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/tutorial/step_05");
+      browser().navigateTo("index-nocache.html#!/tutorial/step_06");
     });
   
 });
 
-  describe("tutorial/step_06", function() {
+  describe("tutorial/step_05", function() {
     beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/tutorial/step_06");
+      browser().navigateTo("index-nocache.html#!/tutorial/step_05");
     });
   
 });
@@ -803,6 +803,20 @@ describe("angular+jqlite", function() {
   
 });
 
+  describe("api/ng.$controllerProvider", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-nocache.html#!/api/ng.$controllerProvider");
+    });
+  
+});
+
+  describe("api/ng.$controller", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-nocache.html#!/api/ng.$controller");
+    });
+  
+});
+
   describe("api/ng.$compile", function() {
     beforeEach(function() {
       browser().navigateTo("index-nocache.html#!/api/ng.$compile");
@@ -826,20 +840,6 @@ describe("angular+jqlite", function() {
   describe("api/ng.$compile.directive.Attributes", function() {
     beforeEach(function() {
       browser().navigateTo("index-nocache.html#!/api/ng.$compile.directive.Attributes");
-    });
-  
-});
-
-  describe("api/ng.$controllerProvider", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/api/ng.$controllerProvider");
-    });
-  
-});
-
-  describe("api/ng.$controller", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/api/ng.$controller");
     });
   
 });
@@ -1039,56 +1039,6 @@ describe("angular+jqlite", function() {
       browser().navigateTo("index-nocache.html#!/api/ng.directive:ngBindHtmlUnsafe");
     });
   
-});
-
-  describe("api/ng.directive:ngClass", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/api/ng.directive:ngClass");
-    });
-  
-    it('should check ng-class', function() {
-      expect(element('.doc-example-live span').prop('className')).not().
-        toMatch(/my-class/);
-    
-      using('.doc-example-live').element(':button:first').click();
-    
-      expect(element('.doc-example-live span').prop('className')).
-        toMatch(/my-class/);
-    
-      using('.doc-example-live').element(':button:last').click();
-    
-      expect(element('.doc-example-live span').prop('className')).not().
-        toMatch(/my-class/);
-    });
-
-});
-
-  describe("api/ng.directive:ngClassOdd", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/api/ng.directive:ngClassOdd");
-    });
-  
-    it('should check ng-class-odd and ng-class-even', function() {
-      expect(element('.doc-example-live li:first span').prop('className')).
-        toMatch(/odd/);
-      expect(element('.doc-example-live li:last span').prop('className')).
-        toMatch(/even/);
-    });
-
-});
-
-  describe("api/ng.directive:ngClassEven", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/api/ng.directive:ngClassEven");
-    });
-  
-    it('should check ng-class-odd and ng-class-even', function() {
-      expect(element('.doc-example-live li:first span').prop('className')).
-        toMatch(/odd/);
-      expect(element('.doc-example-live li:last span').prop('className')).
-        toMatch(/even/);
-    });
-
 });
 
   describe("api/ng.directive:input.text", function() {
@@ -1327,6 +1277,56 @@ describe("angular+jqlite", function() {
 
 });
 
+  describe("api/ng.directive:ngClass", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-nocache.html#!/api/ng.directive:ngClass");
+    });
+  
+    it('should check ng-class', function() {
+      expect(element('.doc-example-live span').prop('className')).not().
+        toMatch(/my-class/);
+    
+      using('.doc-example-live').element(':button:first').click();
+    
+      expect(element('.doc-example-live span').prop('className')).
+        toMatch(/my-class/);
+    
+      using('.doc-example-live').element(':button:last').click();
+    
+      expect(element('.doc-example-live span').prop('className')).not().
+        toMatch(/my-class/);
+    });
+
+});
+
+  describe("api/ng.directive:ngClassOdd", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-nocache.html#!/api/ng.directive:ngClassOdd");
+    });
+  
+    it('should check ng-class-odd and ng-class-even', function() {
+      expect(element('.doc-example-live li:first span').prop('className')).
+        toMatch(/odd/);
+      expect(element('.doc-example-live li:last span').prop('className')).
+        toMatch(/even/);
+    });
+
+});
+
+  describe("api/ng.directive:ngClassEven", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-nocache.html#!/api/ng.directive:ngClassEven");
+    });
+  
+    it('should check ng-class-odd and ng-class-even', function() {
+      expect(element('.doc-example-live li:first span').prop('className')).
+        toMatch(/odd/);
+      expect(element('.doc-example-live li:last span').prop('className')).
+        toMatch(/even/);
+    });
+
+});
+
   describe("api/ng.directive:ngCloak", function() {
     beforeEach(function() {
       browser().navigateTo("index-nocache.html#!/api/ng.directive:ngCloak");
@@ -1498,40 +1498,6 @@ describe("angular+jqlite", function() {
 
 });
 
-  describe("api/ng.directive:ngShow", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/api/ng.directive:ngShow");
-    });
-  
-    it('should check ng-show / ng-hide', function() {
-      expect(element('.doc-example-live span:first:hidden').count()).toEqual(1);
-      expect(element('.doc-example-live span:last:visible').count()).toEqual(1);
-    
-      input('checked').check();
-    
-      expect(element('.doc-example-live span:first:visible').count()).toEqual(1);
-      expect(element('.doc-example-live span:last:hidden').count()).toEqual(1);
-    });
-
-});
-
-  describe("api/ng.directive:ngHide", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/api/ng.directive:ngHide");
-    });
-  
-    it('should check ng-show / ng-hide', function() {
-      expect(element('.doc-example-live span:first:hidden').count()).toEqual(1);
-      expect(element('.doc-example-live span:last:visible').count()).toEqual(1);
-    
-      input('checked').check();
-    
-      expect(element('.doc-example-live span:first:visible').count()).toEqual(1);
-      expect(element('.doc-example-live span:last:hidden').count()).toEqual(1);
-    });
-
-});
-
   describe("api/ng.directive:ngPluralize", function() {
     beforeEach(function() {
       browser().navigateTo("index-nocache.html#!/api/ng.directive:ngPluralize");
@@ -1592,6 +1558,40 @@ describe("angular+jqlite", function() {
          expect(r.row(0)).toEqual(["1","John","25"]);
          expect(r.row(1)).toEqual(["2","Mary","28"]);
        });
+
+});
+
+  describe("api/ng.directive:ngShow", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-nocache.html#!/api/ng.directive:ngShow");
+    });
+  
+    it('should check ng-show / ng-hide', function() {
+      expect(element('.doc-example-live span:first:hidden').count()).toEqual(1);
+      expect(element('.doc-example-live span:last:visible').count()).toEqual(1);
+    
+      input('checked').check();
+    
+      expect(element('.doc-example-live span:first:visible').count()).toEqual(1);
+      expect(element('.doc-example-live span:last:hidden').count()).toEqual(1);
+    });
+
+});
+
+  describe("api/ng.directive:ngHide", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-nocache.html#!/api/ng.directive:ngHide");
+    });
+  
+    it('should check ng-show / ng-hide', function() {
+      expect(element('.doc-example-live span:first:hidden').count()).toEqual(1);
+      expect(element('.doc-example-live span:last:visible').count()).toEqual(1);
+    
+      input('checked').check();
+    
+      expect(element('.doc-example-live span:first:visible').count()).toEqual(1);
+      expect(element('.doc-example-live span:last:hidden').count()).toEqual(1);
+    });
 
 });
 
@@ -1927,13 +1927,6 @@ describe("angular+jqlite", function() {
   
 });
 
-  describe("api/ng.$log", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/api/ng.$log");
-    });
-  
-});
-
   describe("api/ng.$location", function() {
     beforeEach(function() {
       browser().navigateTo("index-nocache.html#!/api/ng.$location");
@@ -1944,6 +1937,13 @@ describe("angular+jqlite", function() {
   describe("api/ng.$locationProvider", function() {
     beforeEach(function() {
       browser().navigateTo("index-nocache.html#!/api/ng.$locationProvider");
+    });
+  
+});
+
+  describe("api/ng.$log", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-nocache.html#!/api/ng.$log");
     });
   
 });
@@ -2097,9 +2097,9 @@ describe("angular+jqlite", function() {
   
 });
 
-  describe("api/angular.mock.debug", function() {
+  describe("api/angular.mock.dump", function() {
     beforeEach(function() {
-      browser().navigateTo("index-nocache.html#!/api/angular.mock.debug");
+      browser().navigateTo("index-nocache.html#!/api/angular.mock.dump");
     });
   
 });
@@ -2418,16 +2418,16 @@ describe("angular+jquery", function() {
   
 });
 
-  describe("guide/concepts", function() {
+  describe("guide/dev_guide.e2e-testing", function() {
     beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/guide/concepts");
+      browser().navigateTo("index-jq-nocache.html#!/guide/dev_guide.e2e-testing");
     });
   
 });
 
-  describe("guide/dev_guide.e2e-testing", function() {
+  describe("guide/concepts", function() {
     beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/guide/dev_guide.e2e-testing");
+      browser().navigateTo("index-jq-nocache.html#!/guide/concepts");
     });
   
 });
@@ -2575,6 +2575,28 @@ describe("angular+jquery", function() {
   
 });
 
+  describe("guide/directive", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-jq-nocache.html#!/guide/directive");
+    });
+  
+      it('should show off bindings', function() {
+        expect(element('div[ng-controller="Ctrl1"] span[ng-bind]').text()).toBe('angular');
+      });
+
+      it('should bind and open / close', function() {
+        input('title').enter('TITLE');
+        input('text').enter('TEXT');
+        expect(element('.title').text()).toEqual('Details: TITLE...');
+        expect(binding('text')).toEqual('TEXT');
+    
+        expect(element('.zippy').prop('className')).toMatch(/closed/);
+        element('.zippy > .title').click();
+        expect(element('.zippy').prop('className')).toMatch(/opened/);
+      });
+
+});
+
   describe("guide/expression", function() {
     beforeEach(function() {
       browser().navigateTo("index-jq-nocache.html#!/guide/expression");
@@ -2604,28 +2626,6 @@ describe("angular+jquery", function() {
         done(null, alertText);
       })).toBe('Hello World');
     });
-
-});
-
-  describe("guide/directive", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/guide/directive");
-    });
-  
-      it('should show off bindings', function() {
-        expect(element('div[ng-controller="Ctrl1"] span[ng-bind]').text()).toBe('angular');
-      });
-
-      it('should bind and open / close', function() {
-        input('title').enter('TITLE');
-        input('text').enter('TEXT');
-        expect(element('.title').text()).toEqual('Details: TITLE...');
-        expect(binding('text')).toEqual('TEXT');
-    
-        expect(element('.zippy').prop('className')).toMatch(/closed/);
-        element('.zippy > .title').click();
-        expect(element('.zippy').prop('className')).toMatch(/opened/);
-      });
 
 });
 
@@ -2769,16 +2769,16 @@ describe("angular+jquery", function() {
   
 });
 
-  describe("tutorial/step_05", function() {
+  describe("tutorial/step_06", function() {
     beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/tutorial/step_05");
+      browser().navigateTo("index-jq-nocache.html#!/tutorial/step_06");
     });
   
 });
 
-  describe("tutorial/step_06", function() {
+  describe("tutorial/step_05", function() {
     beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/tutorial/step_06");
+      browser().navigateTo("index-jq-nocache.html#!/tutorial/step_05");
     });
   
 });
@@ -3056,6 +3056,20 @@ describe("angular+jquery", function() {
   
 });
 
+  describe("api/ng.$controllerProvider", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-jq-nocache.html#!/api/ng.$controllerProvider");
+    });
+  
+});
+
+  describe("api/ng.$controller", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-jq-nocache.html#!/api/ng.$controller");
+    });
+  
+});
+
   describe("api/ng.$compile", function() {
     beforeEach(function() {
       browser().navigateTo("index-jq-nocache.html#!/api/ng.$compile");
@@ -3079,20 +3093,6 @@ describe("angular+jquery", function() {
   describe("api/ng.$compile.directive.Attributes", function() {
     beforeEach(function() {
       browser().navigateTo("index-jq-nocache.html#!/api/ng.$compile.directive.Attributes");
-    });
-  
-});
-
-  describe("api/ng.$controllerProvider", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/api/ng.$controllerProvider");
-    });
-  
-});
-
-  describe("api/ng.$controller", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/api/ng.$controller");
     });
   
 });
@@ -3292,56 +3292,6 @@ describe("angular+jquery", function() {
       browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngBindHtmlUnsafe");
     });
   
-});
-
-  describe("api/ng.directive:ngClass", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngClass");
-    });
-  
-    it('should check ng-class', function() {
-      expect(element('.doc-example-live span').prop('className')).not().
-        toMatch(/my-class/);
-    
-      using('.doc-example-live').element(':button:first').click();
-    
-      expect(element('.doc-example-live span').prop('className')).
-        toMatch(/my-class/);
-    
-      using('.doc-example-live').element(':button:last').click();
-    
-      expect(element('.doc-example-live span').prop('className')).not().
-        toMatch(/my-class/);
-    });
-
-});
-
-  describe("api/ng.directive:ngClassOdd", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngClassOdd");
-    });
-  
-    it('should check ng-class-odd and ng-class-even', function() {
-      expect(element('.doc-example-live li:first span').prop('className')).
-        toMatch(/odd/);
-      expect(element('.doc-example-live li:last span').prop('className')).
-        toMatch(/even/);
-    });
-
-});
-
-  describe("api/ng.directive:ngClassEven", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngClassEven");
-    });
-  
-    it('should check ng-class-odd and ng-class-even', function() {
-      expect(element('.doc-example-live li:first span').prop('className')).
-        toMatch(/odd/);
-      expect(element('.doc-example-live li:last span').prop('className')).
-        toMatch(/even/);
-    });
-
 });
 
   describe("api/ng.directive:input.text", function() {
@@ -3580,6 +3530,56 @@ describe("angular+jquery", function() {
 
 });
 
+  describe("api/ng.directive:ngClass", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngClass");
+    });
+  
+    it('should check ng-class', function() {
+      expect(element('.doc-example-live span').prop('className')).not().
+        toMatch(/my-class/);
+    
+      using('.doc-example-live').element(':button:first').click();
+    
+      expect(element('.doc-example-live span').prop('className')).
+        toMatch(/my-class/);
+    
+      using('.doc-example-live').element(':button:last').click();
+    
+      expect(element('.doc-example-live span').prop('className')).not().
+        toMatch(/my-class/);
+    });
+
+});
+
+  describe("api/ng.directive:ngClassOdd", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngClassOdd");
+    });
+  
+    it('should check ng-class-odd and ng-class-even', function() {
+      expect(element('.doc-example-live li:first span').prop('className')).
+        toMatch(/odd/);
+      expect(element('.doc-example-live li:last span').prop('className')).
+        toMatch(/even/);
+    });
+
+});
+
+  describe("api/ng.directive:ngClassEven", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngClassEven");
+    });
+  
+    it('should check ng-class-odd and ng-class-even', function() {
+      expect(element('.doc-example-live li:first span').prop('className')).
+        toMatch(/odd/);
+      expect(element('.doc-example-live li:last span').prop('className')).
+        toMatch(/even/);
+    });
+
+});
+
   describe("api/ng.directive:ngCloak", function() {
     beforeEach(function() {
       browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngCloak");
@@ -3751,40 +3751,6 @@ describe("angular+jquery", function() {
 
 });
 
-  describe("api/ng.directive:ngShow", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngShow");
-    });
-  
-    it('should check ng-show / ng-hide', function() {
-      expect(element('.doc-example-live span:first:hidden').count()).toEqual(1);
-      expect(element('.doc-example-live span:last:visible').count()).toEqual(1);
-    
-      input('checked').check();
-    
-      expect(element('.doc-example-live span:first:visible').count()).toEqual(1);
-      expect(element('.doc-example-live span:last:hidden').count()).toEqual(1);
-    });
-
-});
-
-  describe("api/ng.directive:ngHide", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngHide");
-    });
-  
-    it('should check ng-show / ng-hide', function() {
-      expect(element('.doc-example-live span:first:hidden').count()).toEqual(1);
-      expect(element('.doc-example-live span:last:visible').count()).toEqual(1);
-    
-      input('checked').check();
-    
-      expect(element('.doc-example-live span:first:visible').count()).toEqual(1);
-      expect(element('.doc-example-live span:last:hidden').count()).toEqual(1);
-    });
-
-});
-
   describe("api/ng.directive:ngPluralize", function() {
     beforeEach(function() {
       browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngPluralize");
@@ -3845,6 +3811,40 @@ describe("angular+jquery", function() {
          expect(r.row(0)).toEqual(["1","John","25"]);
          expect(r.row(1)).toEqual(["2","Mary","28"]);
        });
+
+});
+
+  describe("api/ng.directive:ngShow", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngShow");
+    });
+  
+    it('should check ng-show / ng-hide', function() {
+      expect(element('.doc-example-live span:first:hidden').count()).toEqual(1);
+      expect(element('.doc-example-live span:last:visible').count()).toEqual(1);
+    
+      input('checked').check();
+    
+      expect(element('.doc-example-live span:first:visible').count()).toEqual(1);
+      expect(element('.doc-example-live span:last:hidden').count()).toEqual(1);
+    });
+
+});
+
+  describe("api/ng.directive:ngHide", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-jq-nocache.html#!/api/ng.directive:ngHide");
+    });
+  
+    it('should check ng-show / ng-hide', function() {
+      expect(element('.doc-example-live span:first:hidden').count()).toEqual(1);
+      expect(element('.doc-example-live span:last:visible').count()).toEqual(1);
+    
+      input('checked').check();
+    
+      expect(element('.doc-example-live span:first:visible').count()).toEqual(1);
+      expect(element('.doc-example-live span:last:hidden').count()).toEqual(1);
+    });
 
 });
 
@@ -4180,13 +4180,6 @@ describe("angular+jquery", function() {
   
 });
 
-  describe("api/ng.$log", function() {
-    beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/api/ng.$log");
-    });
-  
-});
-
   describe("api/ng.$location", function() {
     beforeEach(function() {
       browser().navigateTo("index-jq-nocache.html#!/api/ng.$location");
@@ -4197,6 +4190,13 @@ describe("angular+jquery", function() {
   describe("api/ng.$locationProvider", function() {
     beforeEach(function() {
       browser().navigateTo("index-jq-nocache.html#!/api/ng.$locationProvider");
+    });
+  
+});
+
+  describe("api/ng.$log", function() {
+    beforeEach(function() {
+      browser().navigateTo("index-jq-nocache.html#!/api/ng.$log");
     });
   
 });
@@ -4350,9 +4350,9 @@ describe("angular+jquery", function() {
   
 });
 
-  describe("api/angular.mock.debug", function() {
+  describe("api/angular.mock.dump", function() {
     beforeEach(function() {
-      browser().navigateTo("index-jq-nocache.html#!/api/angular.mock.debug");
+      browser().navigateTo("index-jq-nocache.html#!/api/angular.mock.dump");
     });
   
 });

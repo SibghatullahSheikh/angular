@@ -29,8 +29,7 @@ with two $http specific methods: <code>success</code> and <code>error</code>.</p
     }).
     error(function(data, status, headers, config) {
       // called asynchronously if an error occurs
-      // or server returns response with status
-      // code outside of the &lt;200, 400) range
+      // or server returns response with an error status.
     });
 </pre>
 
@@ -38,6 +37,11 @@ with two $http specific methods: <code>success</code> and <code>error</code>.</p
 the <code>then</code> method to register callbacks, and these callbacks will receive a single argument –
 an object representing the response. See the api signature and type info below for more
 details.</p>
+
+<p>A response status code that falls in the [200, 300) range is considered a success status and
+will result in the success callback being called. Note that if the response is a redirect,
+XMLHttpRequest will transparently follow it, meaning that the error callback will not be
+called for such responses.</p>
 
 <h3>Shortcut methods</h3>
 
@@ -214,7 +218,7 @@ unique for each user and must be verifiable by the server (to prevent the JavaSc
 up its own tokens). We recommend that the token is a digest of your site's authentication
 cookie with <a href="http://en.wikipedia.org/wiki/Rainbow_table">salt for added security</a>.</p></div>
 <h2 id="Dependencies">Dependencies</h2>
-<ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$httpBacked">$httpBacked</a></code>
+<ul class="dependencies"><li><code ng:non-bindable=""><a href="api/ng.$httpBackend">$httpBackend</a></code>
 </li>
 <li><code ng:non-bindable=""><a href="api/ng.$browser">$browser</a></code>
 </li>

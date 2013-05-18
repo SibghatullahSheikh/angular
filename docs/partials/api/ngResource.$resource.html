@@ -17,7 +17,9 @@ the need to interact with the low level <a href="api/ng.$http"><code>$http</code
 <h3 id="Parameters">Parameters</h3>
 <ul class="parameters"><li><code ng:non-bindable="">url – {string} – </code>
 <p>A parameterized URL template with parameters prefixed by <code>:</code> as in
-<code>/user/:username</code>.</p></li>
+<code>/user/:username</code>. If you are using a URL with a port number (e.g. 
+<code>http://example.com:8080/api</code>), you'll need to escape the colon character before the port
+number, like this: <code>$resource('http://example.com\\:8080/api')</code>.</p></li>
 <li><code ng:non-bindable="">paramDefaults<i>(optional)</i> – {Object=} – </code>
 <p>Default values for <code>url</code> parameters. These can be overridden in
 <code>actions</code> methods.</p>
