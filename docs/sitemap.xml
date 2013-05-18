@@ -32,8 +32,8 @@
  <url><loc>http://docs.angularjs.org/guide/dev_guide.templates</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/guide/dev_guide.unit-testing</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/guide/di</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/guide/directive</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/guide/expression</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/guide/directive</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/guide/forms</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/guide/i18n</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/guide/ie</loc><changefreq>weekly</changefreq></url>
@@ -53,8 +53,8 @@
  <url><loc>http://docs.angularjs.org/tutorial/step_02</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/tutorial/step_03</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/tutorial/step_04</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/tutorial/step_06</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/tutorial/step_05</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/tutorial/step_06</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/tutorial/step_07</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/tutorial/step_08</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/tutorial/step_09</loc><changefreq>weekly</changefreq></url>
@@ -94,11 +94,11 @@
  <url><loc>http://docs.angularjs.org/api/ng.$anchorScroll</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.$cacheFactory</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.$templateCache</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/api/ng.$controllerProvider</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/api/ng.$controller</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.$compile</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.$compileProvider</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.$compile.directive.Attributes</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/api/ng.$controllerProvider</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/api/ng.$controller</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:a</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:ngHref</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:ngSrc</loc><changefreq>weekly</changefreq></url>
@@ -110,9 +110,6 @@
  <url><loc>http://docs.angularjs.org/api/ng.directive:form.FormController</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:ngForm</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:form</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/api/ng.directive:ngBind</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/api/ng.directive:ngBindTemplate</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/api/ng.directive:ngBindHtmlUnsafe</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:input.text</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:input.number</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:input.url</loc><changefreq>weekly</changefreq></url>
@@ -125,6 +122,9 @@
  <url><loc>http://docs.angularjs.org/api/ng.directive:ngModel</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:ngChange</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:ngList</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/api/ng.directive:ngBind</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/api/ng.directive:ngBindTemplate</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/api/ng.directive:ngBindHtmlUnsafe</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:ngClass</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:ngClassOdd</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ng.directive:ngClassEven</loc><changefreq>weekly</changefreq></url>
@@ -188,6 +188,9 @@
  <url><loc>http://docs.angularjs.org/api/ngCookies</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ngCookies.$cookies</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ngCookies.$cookieStore</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/api/ngResource</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/api/ngResource.$resource</loc><changefreq>weekly</changefreq></url>
+ <url><loc>http://docs.angularjs.org/api/ngSanitize.directive:ngBindHtml</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/angular.mock</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ngMock.$exceptionHandlerProvider</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ngMock.$exceptionHandler</loc><changefreq>weekly</changefreq></url>
@@ -201,9 +204,6 @@
  <url><loc>http://docs.angularjs.org/api/ngMockE2E.$httpBackend</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/angular.mock.module</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/angular.mock.inject</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/api/ngResource</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/api/ngResource.$resource</loc><changefreq>weekly</changefreq></url>
- <url><loc>http://docs.angularjs.org/api/ngSanitize.directive:ngBindHtml</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ngSanitize.filter:linky</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ngSanitize</loc><changefreq>weekly</changefreq></url>
  <url><loc>http://docs.angularjs.org/api/ngSanitize.$sanitize</loc><changefreq>weekly</changefreq></url>

@@ -27,9 +27,10 @@
 – <p>a function which represents the compiled expression:</p>
 
 <ul>
-<li><code>context</code>: an object against which any expressions embedded in the strings are evaluated
- against (Topically a scope object).</li>
-<li><p><code>locals</code>: local variables context object, useful for overriding values in <code>context</code>.</p>
+<li><code>context</code> – <code>{object}</code> – an object against which any expressions embedded in the strings
+ are evaluated against (tipically a scope object).</li>
+<li><p><code>locals</code> – <code>{object=}</code> – local variables context object, useful for overriding values in
+ <code>context</code>.</p>
 
 <p>The return function also has an <code>assign</code> property, if the expression is assignable, which
 allows one to set values to expressions.</p></li>

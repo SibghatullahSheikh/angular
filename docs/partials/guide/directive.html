@@ -30,10 +30,10 @@ attribute only.)</p>
 the following example.</p>
 
 <h3>Source</h3>
-<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-42" source-edit-css="" source-edit-js="script.js-41" source-edit-unit="" source-edit-scenario="scenario.js-43"></div>
+<div source-edit="" source-edit-deps="angular.js script.js" source-edit-html="index.html-50" source-edit-css="" source-edit-js="script.js-49" source-edit-unit="" source-edit-scenario="scenario.js-51"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-42" ng-html-wrap=" angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-42">
+<pre class="prettyprint linenums" ng-set-text="index.html-50" ng-html-wrap=" angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-50">
    
    <div ng-controller="Ctrl1">
      Hello <input ng-model='name'> <hr/>
@@ -46,23 +46,23 @@ the following example.</p>
   </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-41"></pre>
-<script type="text/ng-template" id="script.js-41">
+<pre class="prettyprint linenums" ng-set-text="script.js-49"></pre>
+<script type="text/ng-template" id="script.js-49">
      function Ctrl1($scope) {
        $scope.name = 'angular';
      }
    </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-43"></pre>
-<script type="text/ng-template" id="scenario.js-43">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-51"></pre>
+<script type="text/ng-template" id="scenario.js-51">
     it('should show off bindings', function() {
       expect(element('div[ng-controller="Ctrl1"] span[ng-bind]').text()).toBe('angular');
     });
   </script>
 </div>
 </div><h3>Demo</h3>
-<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-42" ng-eval-javascript="script.js-41"></div>
+<div class="well doc-example-live" ng-embed-app="" ng-set-html="index.html-50" ng-eval-javascript="script.js-49"></div>
 
 <h2>String interpolation</h2>
 
@@ -100,7 +100,7 @@ scope and the DOM. A change in the scope is reflected in the DOM.</p></li>
   var $compile = ...; // injected into your code
   var scope = ...;
 
-  var html = '&lt;div ng-bind='exp'&gt;&lt;/div&gt;';
+  var html = '&lt;div ng-bind="exp"&gt;&lt;/div&gt;';
 
   // Step 1: parse HTML into DOM element
   var template = angular.element(html);
@@ -171,10 +171,10 @@ as to copy content into the DOM from the scope.</p></li>
 <p>In this example we will build a directive that displays the current time.</p>
 
 <h3>Source</h3>
-<div source-edit="time" source-edit-deps="angular.js script.js" source-edit-html="index.html-45" source-edit-css="" source-edit-js="script.js-44" source-edit-unit="" source-edit-scenario=""></div>
+<div source-edit="time" source-edit-deps="angular.js script.js" source-edit-html="index.html-53" source-edit-css="" source-edit-js="script.js-52" source-edit-unit="" source-edit-scenario=""></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-45" ng-html-wrap="time angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-45">
+<pre class="prettyprint linenums" ng-set-text="index.html-53" ng-html-wrap="time angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-53">
    
    <div ng-controller="Ctrl2">
      Date format: <input ng-model="format"> <hr/>
@@ -183,8 +183,8 @@ as to copy content into the DOM from the scope.</p></li>
   </script>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-44"></pre>
-<script type="text/ng-template" id="script.js-44">
+<pre class="prettyprint linenums" ng-set-text="script.js-52"></pre>
+<script type="text/ng-template" id="script.js-52">
      function Ctrl2($scope) {
        $scope.format = 'M/d/yy h:mm:ss a';
      }
@@ -230,7 +230,7 @@ as to copy content into the DOM from the scope.</p></li>
    </script>
 </div>
 </div><h3>Demo</h3>
-<div class="well doc-example-live" ng-embed-app="time" ng-set-html="index.html-45" ng-eval-javascript="script.js-44"></div>
+<div class="well doc-example-live" ng-embed-app="time" ng-set-html="index.html-53" ng-eval-javascript="script.js-52"></div>
 
 <h2>Writing directives (long version)</h2>
 
@@ -594,10 +594,10 @@ can be built.</p>
 <p>Following is an example of building a reusable widget.</p>
 
 <h3>Source</h3>
-<div source-edit="zippyModule" source-edit-deps="angular.js script.js" source-edit-html="index.html-48" source-edit-css="style.css-47" source-edit-js="script.js-46" source-edit-unit="" source-edit-scenario="scenario.js-49"></div>
+<div source-edit="zippyModule" source-edit-deps="angular.js script.js" source-edit-html="index.html-56" source-edit-css="style.css-55" source-edit-js="script.js-54" source-edit-unit="" source-edit-scenario="scenario.js-57"></div>
 <div class="tabbable"><div class="tab-pane" title="index.html">
-<pre class="prettyprint linenums" ng-set-text="index.html-48" ng-html-wrap="zippyModule angular.js script.js"></pre>
-<script type="text/ng-template" id="index.html-48">
+<pre class="prettyprint linenums" ng-set-text="index.html-56" ng-html-wrap="zippyModule angular.js script.js"></pre>
+<script type="text/ng-template" id="index.html-56">
    
    
    <div ng-controller="Ctrl3">
@@ -609,8 +609,8 @@ can be built.</p>
   </script>
 </div>
 <div class="tab-pane" title="style.css">
-<pre class="prettyprint linenums" ng-set-text="style.css-47"></pre>
-<style type="text/css" id="style.css-47">
+<pre class="prettyprint linenums" ng-set-text="style.css-55"></pre>
+<style type="text/css" id="style.css-55">
      .zippy {
        border: 1px solid black;
        display: inline-block;
@@ -632,8 +632,8 @@ can be built.</p>
    </style>
 </div>
 <div class="tab-pane" title="script.js">
-<pre class="prettyprint linenums" ng-set-text="script.js-46"></pre>
-<script type="text/ng-template" id="script.js-46">
+<pre class="prettyprint linenums" ng-set-text="script.js-54"></pre>
+<script type="text/ng-template" id="script.js-54">
      function Ctrl3($scope) {
        $scope.title = 'Lorem Ipsum';
        $scope.text = 'Neque porro quisquam est qui dolorem ipsum quia dolor...';
@@ -676,8 +676,8 @@ can be built.</p>
    </script>
 </div>
 <div class="tab-pane" title="End to end test">
-<pre class="prettyprint linenums" ng-set-text="scenario.js-49"></pre>
-<script type="text/ng-template" id="scenario.js-49">
+<pre class="prettyprint linenums" ng-set-text="scenario.js-57"></pre>
+<script type="text/ng-template" id="scenario.js-57">
     it('should bind and open / close', function() {
       input('title').enter('TITLE');
       input('text').enter('TEXT');
@@ -691,4 +691,4 @@ can be built.</p>
   </script>
 </div>
 </div><h3>Demo</h3>
-<div class="well doc-example-live" ng-embed-app="zippyModule" ng-set-html="index.html-48" ng-eval-javascript="script.js-46"></div></div>
+<div class="well doc-example-live" ng-embed-app="zippyModule" ng-set-html="index.html-56" ng-eval-javascript="script.js-54"></div></div>
