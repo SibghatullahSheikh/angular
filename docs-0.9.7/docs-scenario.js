@@ -1,70 +1,3 @@
-describe('angular.directive', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.directive');
-  });
-  // docs/angular.directive.ngdoc:1
-});
-describe('angular.formatter', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.formatter');
-  });
-  // docs/angular.formatter.ngdoc:1
-it('should store reverse', function(){
- expect(element('.doc-example input:first').val()).toEqual('angular');
- expect(element('.doc-example input:last').val()).toEqual('RALUGNA');
- 
- this.addFutureAction('change to XYZ', function($window, $document, done){
-   $document.elements('.doc-example input:last').val('XYZ').trigger('change');
-   done();
- });
- expect(element('.doc-example input:first').val()).toEqual('zyx');
-});
-});
-describe('angular.element', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.element');
-  });
-  // docs/angular.element.ngdoc:1
-});
-describe('angular.filter', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.filter');
-  });
-  // docs/angular.filter.ngdoc:1
-});
-describe('angular', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular');
-  });
-  // docs/angular.ngdoc:1
-});
-describe('angular.validator', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.validator');
-  });
-  // docs/angular.validator.ngdoc:1
-it('should validate correct UPS tracking number', function() {
-  expect(element('input[name=trackNo]').attr('class')).
-     not().toMatch(/ng-validation-error/);
-});
-it('should not validate in correct UPS tracking number', function() {
-  input('trackNo').enter('foo');
-  expect(element('input[name=trackNo]').attr('class')).
-     toMatch(/ng-validation-error/);
-});
-});
-describe('angular.service', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service');
-  });
-  // docs/angular.service.ngdoc:1
-});
-describe('angular.widget', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.widget');
-  });
-  // docs/angular.widget.ngdoc:1
-});
 describe('angular.lowercase', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.lowercase');
@@ -184,12 +117,6 @@ describe('angular.directive.ng:autobind', function(){
     browser().navigateTo('index.html#!angular.directive.ng:autobind');
   });
   // src/Angular.js:794
-});
-describe('angular.service.$browser', function(){
-  beforeEach(function(){
-    browser().navigateTo('index.html#!angular.service.$browser');
-  });
-  // src/AngularPublic.js:2
 });
 describe('angular.Object', function(){
   beforeEach(function(){
@@ -755,6 +682,79 @@ describe('angular.injector', function(){
   });
   // src/Injector.js:1
 });
+describe('angular.service.$browser', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service.$browser');
+  });
+  // src/AngularPublic.js:2
+});
+describe('angular.directive', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.directive');
+  });
+  // docs/angular.directive.ngdoc:1
+});
+describe('angular.element', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.element');
+  });
+  // docs/angular.element.ngdoc:1
+});
+describe('angular.filter', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.filter');
+  });
+  // docs/angular.filter.ngdoc:1
+});
+describe('angular', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular');
+  });
+  // docs/angular.ngdoc:1
+});
+describe('angular.service', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.service');
+  });
+  // docs/angular.service.ngdoc:1
+});
+describe('angular.formatter', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.formatter');
+  });
+  // docs/angular.formatter.ngdoc:1
+it('should store reverse', function(){
+ expect(element('.doc-example input:first').val()).toEqual('angular');
+ expect(element('.doc-example input:last').val()).toEqual('RALUGNA');
+ 
+ this.addFutureAction('change to XYZ', function($window, $document, done){
+   $document.elements('.doc-example input:last').val('XYZ').trigger('change');
+   done();
+ });
+ expect(element('.doc-example input:first').val()).toEqual('zyx');
+});
+});
+describe('angular.validator', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.validator');
+  });
+  // docs/angular.validator.ngdoc:1
+it('should validate correct UPS tracking number', function() {
+  expect(element('input[name=trackNo]').attr('class')).
+     not().toMatch(/ng-validation-error/);
+});
+it('should not validate in correct UPS tracking number', function() {
+  input('trackNo').enter('foo');
+  expect(element('input[name=trackNo]').attr('class')).
+     toMatch(/ng-validation-error/);
+});
+});
+describe('angular.widget', function(){
+  beforeEach(function(){
+    browser().navigateTo('index.html#!angular.widget');
+  });
+  // docs/angular.widget.ngdoc:1
+});
 describe('angular.toJson', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.toJson');
@@ -923,25 +923,25 @@ describe('angular.service.$xhr.cache', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.service.$xhr.cache');
   });
-  // src/services.js:834
+  // src/services.js:838
 });
 describe('angular.service.$resource', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.service.$resource');
   });
-  // src/services.js:889
+  // src/services.js:893
 });
 describe('angular.service.$cookies', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.service.$cookies');
   });
-  // src/services.js:1026
+  // src/services.js:1044
 });
 describe('angular.service.$cookieStore', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.service.$cookieStore');
   });
-  // src/services.js:1111
+  // src/services.js:1129
 });
 describe('angular.validator.regexp', function(){
   beforeEach(function(){
@@ -961,7 +961,7 @@ describe('angular.validator.number', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.validator.number');
   });
-  // src/validators.js:39
+  // src/validators.js:40
 it('should invalidate number', function(){
   var n1 = element('.doc-example :input[name=n1]');
   expect(n1.attr('className')).not().toMatch(/ng-validation-error/);
@@ -984,7 +984,7 @@ describe('angular.validator.integer', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.validator.integer');
   });
-  // src/validators.js:92
+  // src/validators.js:93
 it('should invalidate integer', function(){
   var n1 = element('.doc-example :input[name=n1]');
   expect(n1.attr('className')).not().toMatch(/ng-validation-error/);
@@ -1007,7 +1007,7 @@ describe('angular.validator.date', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.validator.date');
   });
-  // src/validators.js:138
+  // src/validators.js:139
 it('should invalidate date', function(){
   var n1 = element('.doc-example :input');
   expect(n1.attr('className')).not().toMatch(/ng-validation-error/);
@@ -1019,7 +1019,7 @@ describe('angular.validator.email', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.validator.email');
   });
-  // src/validators.js:172
+  // src/validators.js:173
 it('should invalidate email', function(){
   var n1 = element('.doc-example :input');
   expect(n1.attr('className')).not().toMatch(/ng-validation-error/);
@@ -1031,7 +1031,7 @@ describe('angular.validator.phone', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.validator.phone');
   });
-  // src/validators.js:202
+  // src/validators.js:203
 it('should invalidate phone', function(){
   var n1 = element('.doc-example :input');
   expect(n1.attr('className')).not().toMatch(/ng-validation-error/);
@@ -1043,7 +1043,7 @@ describe('angular.validator.url', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.validator.url');
   });
-  // src/validators.js:235
+  // src/validators.js:236
 it('should invalidate url', function(){
   var n1 = element('.doc-example :input');
   expect(n1.attr('className')).not().toMatch(/ng-validation-error/);
@@ -1055,7 +1055,7 @@ describe('angular.validator.json', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.validator.json');
   });
-  // src/validators.js:265
+  // src/validators.js:266
 it('should invalidate json', function(){
   var n1 = element('.doc-example :input');
   expect(n1.attr('className')).not().toMatch(/ng-validation-error/);
@@ -1067,7 +1067,7 @@ describe('angular.validator.asynchronous', function(){
   beforeEach(function(){
     browser().navigateTo('index.html#!angular.validator.asynchronous');
   });
-  // src/validators.js:298
+  // src/validators.js:299
 it('should change color in delayed way', function(){
   var textBox = element('.doc-example :input');
   expect(textBox.attr('className')).not().toMatch(/ng-input-indicator-wait/);

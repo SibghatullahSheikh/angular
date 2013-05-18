@@ -31,8 +31,9 @@ ng-validation-error
 <h2>Example</h2>
 <doc:example>
   <doc:source>
+&lt;script&gt; var ssn = /^\d\d\d-\d\d-\d\d\d\d$/; &lt;/script&gt;
 Enter valid SSN:
-&lt;input name="ssn" value="123-45-6789" ng:validate="regexp:/^\d\d\d-\d\d-\d\d\d\d$/" &gt;
+&lt;input name="ssn" value="123-45-6789" ng:validate="regexp:$window.ssn" &gt;
   </doc:source>
   <doc:scenario>it('should invalidate non ssn', function(){
   var textBox = element('.doc-example :input');
