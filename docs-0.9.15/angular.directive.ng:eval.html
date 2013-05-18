@@ -24,8 +24,9 @@ the display.</p><doc:example>
 &lt;input name="obj.b" value="2"&gt;
          = {{obj.multiplied = obj.a * obj.b}} &lt;br&gt;
        &lt;span ng:eval="obj.divide = obj.a / obj.b"&gt;&lt;/span&gt;
-       &lt;span ng:eval="obj.updateCount = 1 + (obj.updateCount||0)"&gt;&lt;/span&gt;
-       &lt;tt&gt;obj.divide = {{obj.divide}}&lt;/tt&gt;&lt;br/&gt;
+       &lt;span ng:eval="obj.updateCount = 1 + (obj.updateCount||0)"&gt;
+       &lt;/span&gt;
+       &lt;tt&gt;obj.divide = {{obj.divide}}&lt;/tt&gt;&lt;br&gt;
        &lt;tt&gt;obj.updateCount = {{obj.updateCount}}&lt;/tt&gt;
      </pre>
      <pre class="doc-scenario">

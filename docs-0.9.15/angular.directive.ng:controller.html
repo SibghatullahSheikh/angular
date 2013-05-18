@@ -2,26 +2,38 @@
 <div class="angular-directive-ng-controller"><fieldset class="workInProgress"><legend>Work in Progress</legend>
 This page is currently being revised. It might be incomplete or contain inaccuracies.</fieldset>
 <h2>Description</h2>
-<div class="description"><p>To support the Model-View-Controller design pattern, it is possible
-to assign behavior to a scope through <code>ng:controller</code>. The scope is
-the MVC model. The HTML (with data bindings) is the MVC view.
-The <code>ng:controller</code> directive specifies the MVC controller class</p></div>
+<div class="description"><p>The <code>ng:controller</code> directive assigns behavior to a scope. This is a key aspect of how angular
+supports the principles behind the Model-View-Controller design pattern.</p>
+
+<p>MVC components in angular:</p>
+
+<ul>
+<li>Model — The Model is data in scope properties; scopes are attached to the DOM.</li>
+<li>View — The template (HTML with data bindings) is rendered into the View.</li>
+<li>Controller — The <code>ng:controller</code> directive specifies a Controller class; the class has
+methods that typically express the business logic behind the application.</li>
+</ul>
+
+<p>Note that an alternative way to define controllers is via the <code>&lt;a href="#!angular.service.$route"&gt;&lt;code&gt;angular.service.$route&lt;/code&gt;&lt;/a&gt;</code>
+service.</p></div>
 <h2>Usage</h2>
 <div class="usage"><pre class="brush: js; html-script: true;">&lt;ANY ng:controller="expression"&gt;
    ...
 &lt;/ANY&gt;</pre>
 <h3>Parameters</h3>
 <ul class="parameters"><li><code ng:non-bindable="">expression – {expression} – </code>
-<p><a href="#!guide.expression">Expression</a> to eval.</p></li>
+<p>Name of a globally accessible constructor function or an
+<a href="#!guide.expression">expression</a> that on the current scope evaluates to a constructor
+function.</p></li>
 </ul>
 </div>
 <h2>Example</h2>
-<div class="example"><p>Here is a simple form for editing the user contact information. Adding, removing clearing and
-greeting are methods which are declared on the controller (see source tab). These methods can
-easily be called from the angular markup. Notice that the scope becomes the controller's class
-this. This allows for easy access to the view data from the controller. Also notice that any
-changes to the data are automatically reflected in the view without the need to update it
-manually.</p><doc:example>
+<div class="example"><p>Here is a simple form for editing user contact information. Adding, removing, clearing, and
+greeting are methods declared on the controller (see source tab). These methods can
+easily be called from the angular markup. Notice that the scope becomes the <code>this</code> for the
+controller's instance. This allows for easy access to the view data from the controller. Also
+notice that any changes to the data are automatically reflected in the View without the need
+for a manual update.</p><doc:example>
      <pre class="doc-source">
       &lt;script type="text/javascript"&gt;
         function SettingsController() {

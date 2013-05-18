@@ -34,7 +34,7 @@ angular.widget('my:watch', function(compileElement) {
 
 <p>Let's implement the same widget, but this time as an attribute
 that can be added to any existing DOM element.</p><div ng:non-bindable><pre class="brush: js; html-script: true;">
-&lt;div my-watch="name"&gt;text&lt;/div&gt;
+&lt;div my:watch="name"&gt;text&lt;/div&gt;
 </pre></div><p>You can implement <code>my:watch</code> attribute like this:</p><div ng:non-bindable><pre class="brush: js; html-script: true;">
 angular.widget('@my:watch', function(expression, compileElement) {
   var compiler = this;
