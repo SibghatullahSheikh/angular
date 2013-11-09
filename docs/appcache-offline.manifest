@@ -1,5 +1,5 @@
 CACHE MANIFEST
-# 2013-10-14T17:37:39.090Z
+# 2013-11-08T17:41:58.118Z
 
 # cache all of these
 CACHE:
@@ -44,12 +44,11 @@ img/bullet.png
 img/form_data_flow.png
 img/glyphicons-halflings-white.png
 img/glyphicons-halflings.png
-img/guide/about_model_final.png
-img/guide/about_view_final.png
-img/guide/concepts-controller.png
+img/guide/concepts-databinding1.png
+img/guide/concepts-databinding2.png
 img/guide/concepts-directive.png
-img/guide/concepts-model.png
 img/guide/concepts-module-injector.png
+img/guide/concepts-module-service.png
 img/guide/concepts-runtime.png
 img/guide/concepts-scope.png
 img/guide/concepts-startup.png
@@ -290,6 +289,7 @@ partials/error/$location:isrcharg.html
 partials/error/$parse:isecdom.html
 partials/error/$parse:isecfld.html
 partials/error/$parse:isecfn.html
+partials/error/$parse:isecprv.html
 partials/error/$parse:isecwindow.html
 partials/error/$parse:lexerr.html
 partials/error/$parse:syntax.html
@@ -327,11 +327,9 @@ partials/guide/animations.html
 partials/guide/bootstrap.html
 partials/guide/compiler.html
 partials/guide/concepts.html
+partials/guide/controller.html
+partials/guide/databinding.html
 partials/guide/dev_guide.e2e-testing.html
-partials/guide/dev_guide.mvc.html
-partials/guide/dev_guide.mvc.understanding_controller.html
-partials/guide/dev_guide.mvc.understanding_model.html
-partials/guide/dev_guide.mvc.understanding_view.html
 partials/guide/dev_guide.services.$location.html
 partials/guide/dev_guide.services.creating_services.html
 partials/guide/dev_guide.services.html
@@ -340,23 +338,20 @@ partials/guide/dev_guide.services.managing_dependencies.html
 partials/guide/dev_guide.services.testing_services.html
 partials/guide/dev_guide.services.understanding_services.html
 partials/guide/dev_guide.templates.css-styling.html
-partials/guide/dev_guide.templates.databinding.html
-partials/guide/dev_guide.templates.filters.creating_filters.html
-partials/guide/dev_guide.templates.filters.html
-partials/guide/dev_guide.templates.filters.using_filters.html
-partials/guide/dev_guide.templates.html
 partials/guide/dev_guide.unit-testing.html
 partials/guide/di.html
 partials/guide/directive.html
 partials/guide/expression.html
+partials/guide/filter.html
 partials/guide/forms.html
 partials/guide/i18n.html
 partials/guide/ie.html
 partials/guide/index.html
 partials/guide/introduction.html
 partials/guide/module.html
-partials/guide/overview.html
+partials/guide/providers.html
 partials/guide/scope.html
+partials/guide/templates.html
 partials/misc/contribute.html
 partials/misc/downloading.html
 partials/misc/faq.html
